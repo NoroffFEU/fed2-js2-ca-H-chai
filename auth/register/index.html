@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <script
+      type="module"
+      crossorigin
+      src="../../assets/app-CNLN_ZUe.js"
+    ></script>
+    <link rel="stylesheet" crossorigin href="../../assets/app-DWUfgLiM.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="/">
+        <img src="../../images/noroff-logo.png" alt="Logo" class="logo" />
+      </a>
+    </header>
+
+    <main class="auth-main">
+      <h1 class="page-title">Register</h1>
+
+      <form name="register">
+        <div>
+          <label for="name"
+            ><input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Username"
+              required
+              maxlength="20"
+              pattern="^[\w]+$"
+              title="Please enter a username using only letters and numbers"
+          /></label>
+        </div>
+
+        <div>
+          <label for="email"
+            ><input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+              title="Please enter a valid noroff.no or stud.noroff.no address"
+          /></label>
+        </div>
+
+        <div>
+          <label for="password"
+            ><input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+              minlength="8"
+          /></label>
+        </div>
+
+        <button type="submit" class="submit-type-button">Register</button>
+        <p class="auth-info">
+          You already have an account?<a href="/auth/login/" class="auth-link"
+            >Log in</a
+          >
+        </p>
+      </form>
+    </main>
+
+    <footer>
+      <a href="#">Terms Of Use</a>
+      <a href="#">Privacy Policy</a>
+    </footer>
+  </body>
+</html>

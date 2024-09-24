@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <script
+      src="https://kit.fontawesome.com/98d292e689.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      crossorigin
+      src="../../
+../../assets/app-CNLN_ZUe.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="../../
+../../assets/app-DWUfgLiM.css"
+    />
+  </head>
+  <body class="post-body">
+    <header class="post-header">
+      <a href="/post/feed/?page=1">
+        <img
+          src="../../
+../../images/noroff-logo.png"
+          alt="Logo"
+          class="logo"
+        />
+      </a>
+      <nav class="header-nav">
+        <a href="/post/create/" class="new-post-button-desktop button-dark">
+          <i class="fa-solid fa-pen-fancy"></i>
+          New Post
+        </a>
+        <a class="my-page">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button class="logout-button">Log out</button>
+      </nav>
+    </header>
+
+    <main class="post-main">
+      <form name="editPost" class="edit-form">
+        <label for="title">
+          Title
+          <input name="title" id="title" type="text" />
+        </label>
+        <label for="img-url">
+          Image URL
+          <input name="media[url]" id="img-url" type="text" required />
+        </label>
+        <label for="img-alt">
+          Image alt
+          <input name="media[alt]" id="img-alt" type="text" required />
+        </label>
+        <label for="tags">
+          Tag
+          <input name="tags" id="tags" type="text" />
+        </label>
+        <label for="content">
+          Content
+          <textarea
+            name="body"
+            id="content"
+            cols="30"
+            rows="12"
+            required
+          ></textarea>
+        </label>
+        <button type="submit" class="submit-type-button">Update Post</button>
+      </form>
+      <button class="delete-button">Delete This Post</button>
+    </main>
+
+    <footer>
+      <a href="#">Terms Of Use</a>
+      <a href="#">Privacy Policy</a>
+    </footer>
+  </body>
+</html>
