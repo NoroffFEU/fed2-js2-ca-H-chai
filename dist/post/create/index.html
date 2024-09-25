@@ -2,26 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../src/css/style.css" />
-    <script type="module" src="../../src/app.js" defer></script>
+    <script type="module" crossorigin src="/assets/app-Dob_EAjt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/app-dYjuQQMH.css">
   </head>
-  <body class="post-body">
+  <body>
     <header class="post-header">
       <a href="/post/feed/?page=1">
-        <img src="/public/images/noroff-logo.png" alt="Logo" class="logo" />
+        <img src="/assets/noroff-logo-cWZQt9D6.png" alt="Logo" class="logo" />
       </a>
       <nav class="header-nav">
-        <a href="/post/create/" class="new-post-button-desktop button-dark">
-          <i class="fa-solid fa-pen-fancy"></i>
-          New Post
-        </a>
         <a class="my-page">
           <i class="fa-regular fa-user"></i>
         </a>
@@ -30,10 +25,12 @@
     </header>
 
     <main class="post-main">
-      <form name="editPost" class="edit-form">
+      <h1>New Post</h1>
+
+      <form name="createPost" class="create-form">
         <label for="title">
           Title
-          <input name="title" id="title" type="text" />
+          <input name="title" id="title" type="text" required />
         </label>
         <label for="img-url">
           Image URL
@@ -57,9 +54,8 @@
             required
           ></textarea>
         </label>
-        <button type="submit" class="submit-type-button">Update Post</button>
+        <button type="submit" class="submit-type-button">Create Post</button>
       </form>
-      <button class="delete-button">Delete This Post</button>
     </main>
 
     <footer>

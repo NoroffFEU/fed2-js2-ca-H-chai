@@ -22,44 +22,41 @@
           <i class="fa-solid fa-pen-fancy"></i>
           New Post
         </a>
-        <a class="my-page">
-          <i class="fa-regular fa-user"></i>
-        </a>
         <button class="logout-button">Log out</button>
       </nav>
     </header>
 
     <main class="post-main">
-      <form name="editPost" class="edit-form">
-        <label for="title">
-          Title
-          <input name="title" id="title" type="text" />
+      <div class="back-to-feed">
+        <a class="back-to-profile-page">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
+      </div>
+      <h1>Update Profile</h1>
+
+      <form name="updateProfile" class="update-profile-form">
+        <label for="bio">
+          Bio
+          <input name="bio" id="bio" type="text" />
         </label>
-        <label for="img-url">
-          Image URL
-          <input name="media[url]" id="img-url" type="text" required />
+        <label for="banner">
+          Banner URL
+          <input name="banner[url]" id="banner" type="url" />
         </label>
-        <label for="img-alt">
-          Image alt
-          <input name="media[alt]" id="img-alt" type="text" required />
+        <label for="banner-alt">
+          Banner alt
+          <input name="banner[alt]" id="banner-alt" type="text" />
         </label>
-        <label for="tags">
-          Tag
-          <input name="tags" id="tags" type="text" />
+        <label for="avatar">
+          Avatar URL
+          <input name="avatar[url]" id="avatar" type="url" />
         </label>
-        <label for="content">
-          Content
-          <textarea
-            name="body"
-            id="content"
-            cols="30"
-            rows="12"
-            required
-          ></textarea>
+        <label for="avatar-alt">
+          Avatar alt
+          <input name="avatar[alt]" id="avatar-alt" type="text" />
         </label>
-        <button type="submit" class="submit-type-button">Update Post</button>
+        <button type="submit" class="submit-type-button">Update Profile</button>
       </form>
-      <button class="delete-button">Delete This Post</button>
     </main>
 
     <footer>
