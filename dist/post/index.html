@@ -2,21 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../src/css/style.css" />
-    <script type="module" src="../src/app.js" defer></script>
+    <script type="module" crossorigin src="/assets/app-BxRfu2-I.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/app-dYjuQQMH.css">
   </head>
   <body class="post-body">
-    <header class="post-header profile-header">
-      <a href="/post/feed/?page=1" class="back-to-feed-on-profile">
-        <i class="fa-solid fa-chevron-left"></i>
-        Back to Top
+    <header class="post-header">
+      <a href="/post/feed/?page=1">
+        <img src="/assets/noroff-logo-cWZQt9D6.png" alt="Logo" class="logo" />
       </a>
       <nav class="header-nav">
         <a href="/post/create/" class="new-post-button-desktop button-dark">
@@ -30,26 +28,28 @@
       </nav>
     </header>
 
-    <main class="post-main profile-main">
+    <main class="post-main">
       <a href="/post/create/" class="new-post-button-mobile button-dark">
         <i class="fa-solid fa-pen-fancy"></i>
         New Post
       </a>
-      <div class="button-area"></div>
-      <div class="profile">
-        <img src="" alt="" class="avatar" />
-        <div class="user-information">
-          <h1 class="username"></h1>
-          <p class="bio"></p>
-          <ul>
-            <li>Followers: <span class="followers"></span></li>
-            <li>Following: <span class="following"></span></li>
-          </ul>
-          <p>Posts: <span class="posts"></span></p>
-        </div>
+      <div class="back-to-feed">
+        <a class="back-to-profile-page">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
       </div>
-      <div class="feed"></div>
-      <div class="feed-pagination"></div>
+      <div class="single-post"></div>
+      <div class="single-pagination">
+        <button id="previous-post" class="single-pagination-button">
+          <i class="fa-solid fa-chevron-left"></i>
+          Previous
+        </button>
+        <a href="" class="back-link-on-single-page">Back Feed</a>
+        <button id="next-post" class="single-pagination-button">
+          Next
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
     </main>
 
     <footer>

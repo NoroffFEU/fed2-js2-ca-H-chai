@@ -30,36 +30,12 @@
     </header>
 
     <main class="post-main">
-      <form name="editPost" class="edit-form">
-        <label for="title">
-          Title
-          <input name="title" id="title" type="text" />
-        </label>
-        <label for="img-url">
-          Image URL
-          <input name="media[url]" id="img-url" type="text" required />
-        </label>
-        <label for="img-alt">
-          Image alt
-          <input name="media[alt]" id="img-alt" type="text" required />
-        </label>
-        <label for="tags">
-          Tag
-          <input name="tags" id="tags" type="text" />
-        </label>
-        <label for="content">
-          Content
-          <textarea
-            name="body"
-            id="content"
-            cols="30"
-            rows="12"
-            required
-          ></textarea>
-        </label>
-        <button type="submit" class="submit-type-button">Update Post</button>
-      </form>
-      <button class="delete-button">Delete This Post</button>
+      <a href="/post/create/" class="new-post-button-mobile button-dark">
+        <i class="fa-solid fa-pen-fancy"></i>
+        New Post
+      </a>
+      <div class="feed"></div>
+      <div class="feed-pagination"></div>
     </main>
 
     <footer>

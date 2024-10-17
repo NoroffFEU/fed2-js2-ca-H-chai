@@ -1,22 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <script type="module" src="src/app.js" defer></script>
+  </head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noroff FED2 JS2 CA</title>
-  <script type="module" src="/src/app.js"></script>
-</head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="public/images/noroff-logo.png" alt="Logo" class="logo" />
+      </a>
+    </header>
 
-<body>
-  <img src="/images/noroff-logo.png" alt="Noroff Logo" />
+    <main class="auth-main">
+      <h1 class="page-title">Login</h1>
+      <form name="login">
+        <div>
+          <label for="email">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </label>
+        </div>
 
-  <h1>Home</h1>
+        <div>
+          <label for="password">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </label>
+        </div>
 
-  <a href="/profile/">My Profile</a>
-  <a href="/auth/login/">Login</a>
-  <a href="/auth/register/">Register</a>
-  <button>Logout</button>
-</body>
+        <button type="submit" class="submit-type-button">Log in</button>
+        <p class="auth-info">
+          Don't have an account?<a href="/auth/register/" class="auth-link"
+            >Sign up</a
+          >
+        </p>
+      </form>
+    </main>
+
+    <footer>
+      <a href="#">Terms Of Use</a>
+      <a href="#">Privacy Policy</a>
+    </footer>
+  </body>
 </html>
