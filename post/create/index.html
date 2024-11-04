@@ -1,16 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/98d292e689.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+    <script type="module" src="../../src/app.js" defer></script>
   </head>
   <body>
-    <h1>Create Post</h1>
+    <header class="post-header">
+      <a href="/post/feed/?page=1">
+        <img src="/public/images/noroff-logo.png" alt="Logo" class="logo" />
+      </a>
+      <nav class="header-nav">
+        <a class="my-page">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button class="logout-button">Log out</button>
+      </nav>
+    </header>
 
-    <form name="createPost">
-      <button>Create Post</button>
-    </form>
+    <main class="post-main">
+      <h1>New Post</h1>
+
+      <form name="createPost" class="create-form">
+        <label for="title">
+          Title
+          <input name="title" id="title" type="text" required />
+        </label>
+        <label for="img-url">
+          Image URL
+          <input name="media[url]" id="img-url" type="text" required />
+        </label>
+        <label for="img-alt">
+          Image alt
+          <input name="media[alt]" id="img-alt" type="text" required />
+        </label>
+        <label for="tags">
+          Tag
+          <input name="tags" id="tags" type="text" />
+        </label>
+        <label for="content">
+          Content
+          <textarea
+            name="body"
+            id="content"
+            cols="30"
+            rows="12"
+            required
+          ></textarea>
+        </label>
+        <button type="submit" class="submit-type-button">Create Post</button>
+      </form>
+    </main>
+
+    <footer>
+      <a href="#">Terms Of Use</a>
+      <a href="#">Privacy Policy</a>
+    </footer>
   </body>
 </html>
