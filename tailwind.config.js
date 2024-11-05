@@ -12,7 +12,20 @@ export default {
       white: "#ffffff",
       gray: "#4a5568",
     },
-    extend: {},
+    transitionTimingFunction: {
+      "nav-transition": "cubic-bezier(0.04, 0.04, 0.12, 0.96)",
+    },
+    transitionDuration: {
+      "nav-transition": "319ms", // equivalent to 0.3192s
+    },
+    transitionDelay: {
+      "nav-transition": "100ms", // equivalent to 0.1008s
+    },
+    extend: {
+      aspectRatio: {
+        "4/3": "4 / 3",
+      },
+    },
   },
   plugins: [],
 };
