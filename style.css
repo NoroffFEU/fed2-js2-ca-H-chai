@@ -858,6 +858,11 @@ video {
   background-color: rgb(2 89 81 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1169,6 +1174,22 @@ button:disabled {
 }
 
 @media (min-width: 1024px) {
+  .lg\:absolute {
+    position: absolute;
+  }
+
+  .lg\:relative {
+    position: relative;
+  }
+
+  .lg\:z-50 {
+    z-index: 50;
+  }
+
+  .lg\:-z-50 {
+    z-index: -50;
+  }
+
   .lg\:mx-auto {
     margin-left: auto;
     margin-right: auto;

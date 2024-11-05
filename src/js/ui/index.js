@@ -185,16 +185,18 @@ export default class NoroffApp extends NoroffAPI {
     },
 
     logout: () => {
-      const logoutButton = document.querySelector(".logout-button");
-      logoutButton.addEventListener("click", (event) => {
-        event.preventDefault();
+      const logoutButtons = document.querySelectorAll(".logout-button");
+      logoutButtons.forEach((logoutButton) => {
+        logoutButton.addEventListener("click", (event) => {
+          event.preventDefault();
 
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        localStorage.removeItem("page");
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          localStorage.removeItem("page");
 
-        alert("You have successfully logged out.");
-        window.location.href = "/";
+          alert("You have successfully logged out.");
+          window.location.href = "/";
+        });
       });
     },
 
@@ -318,11 +320,7 @@ export default class NoroffApp extends NoroffAPI {
           backProfileButton.href = `/profile/?name=${postAuthor}`;
           backProfileButton.textContent = `${postAuthor}'s page`;
           const backIcon = document.createElement("i");
-          backIcon.classList.add(
-            "fa-solid",
-            "fa-chevron-left",
-            "back-to-profile-icon"
-          );
+          backIcon.classList.add("fa-solid", "fa-chevron-left", "mr-1");
           backProfileButton.insertBefore(
             backIcon,
             backProfileButton.firstChild
@@ -544,11 +542,7 @@ export default class NoroffApp extends NoroffAPI {
           backProfileButton.href = `/profile/?name=${NoroffAPI.user}`;
           backProfileButton.textContent = "My profile page";
           const backIcon = document.createElement("i");
-          backIcon.classList.add(
-            "fa-solid",
-            "fa-chevron-left",
-            "back-to-profile-icon"
-          );
+          backIcon.classList.add("fa-solid", "fa-chevron-left", "mr-1");
           backProfileButton.insertBefore(
             backIcon,
             backProfileButton.firstChild
