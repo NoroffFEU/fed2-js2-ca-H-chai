@@ -71,7 +71,7 @@ export default class NoroffApp extends NoroffAPI {
     const originalCommentUser = originalComment.dataset.username;
     originalComment.style.backgroundColor = "#dedede";
 
-    existingReplyMessage.innerHTML = `<button class="cancel" type="button"><i class="fa-solid fa-circle-xmark"></i></button>Replying to <span class="reply-to">${originalCommentUser}</span>`;
+    existingReplyMessage.innerHTML = `<button class="cancel text-sm" type="button"><i class="fa-solid fa-circle-xmark mr-1"></i></button>Replying to <span class="reply-to">${originalCommentUser}</span>`;
     originalComment.dataset.replying = "true";
 
     const cancelButton = document.querySelector(".cancel");

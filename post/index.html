@@ -8,51 +8,81 @@
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <script type="module" src="../src/app.js" defer></script>
   </head>
-  <body class="post-body">
-    <header class="post-header">
-      <a href="/post/feed/?page=1">
+  <body class="bg-bg-pink font-display">
+    <header
+      class="fixed top-0 right-0 left-0 flex justify-between items-center bg-bg-pink p-4 lg:pt-10 lg:pb-10 lg:px-16"
+    >
+      <a href="/post/feed/?page=1" class="w-1/4 md:w-1/6">
         <img src="/public/images/Postlyfe.svg" alt="Logo" class="logo" />
       </a>
-      <nav class="header-nav">
-        <a href="/post/create/" class="new-post-button-desktop button-dark">
-          <i class="fa-solid fa-pen-fancy"></i>
+      <nav class="lg:hidden">
+        <input type="checkbox" class="menu-btn hidden" id="menu-btn" />
+        <label for="menu-btn" class="menu-icon"
+          ><span class="navicon"></span
+        ></label>
+        <ul class="menu bg-bg-pink">
+          <li>
+            <a class="text-green font-semibold"> My Page </a>
+          </li>
+          <li>
+            <button class="logout-button text-green font-semibold">
+              Log out
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-nav hidden lg:flex lg:gap-2">
+        <a
+          href="/post/create/"
+          class="text-green font-medium border-2 px-4 py-2 rounded-md bg-bg-light"
+        >
+          <i class="fa-solid fa-pen-fancy text-green mr-1"></i>
           New Post
         </a>
-        <a class="my-page">
-          <i class="fa-regular fa-user"></i>
+        <a class="my-page text-green border-2 px-4 py-2 rounded-md bg-bg-light">
+          <i class="fa-solid fa-user"></i>
         </a>
-        <button class="logout-button">Log out</button>
+        <button
+          class="logout-button text-green font-medium border-2 px-4 py-2 rounded-md bg-bg-light"
+        >
+          Log out
+        </button>
       </nav>
     </header>
 
-    <main class="post-main">
-      <a href="/post/create/" class="new-post-button-mobile button-dark">
+    <main
+      class="mx-4 my-20 px-4 py-8 bg-bg-light rounded-md lg:mx-32 lg:my-44 lg:px-32 lg:py-20"
+    >
+      <a
+        href="/post/create/"
+        class="text-bg-light bg-green font-medium px-4 py-2 rounded-md fixed right-6 bottom-10 lg:hidden"
+      >
         <i class="fa-solid fa-pen-fancy"></i>
         New Post
       </a>
-      <div class="back-to-feed">
-        <a class="back-to-profile-page">
-          <i class="fa-solid fa-chevron-left"></i>
+      <div class="mb-6 lg:mb-8">
+        <a class="back-to-profile-page underline text-sm">
+          <i class="fa-solid fa-chevron-left mr-1"></i>
         </a>
       </div>
-      <div class="single-post"></div>
-      <div class="single-pagination">
+      <div class="single-post mb-12"></div>
+      <div class="single-pagination text-sm flex justify-between items-center">
         <button id="previous-post" class="single-pagination-button">
-          <i class="fa-solid fa-chevron-left"></i>
+          <i class="fa-solid fa-chevron-left mr-1"></i>
           Previous
         </button>
         <a href="" class="back-link-on-single-page">Back Feed</a>
         <button id="next-post" class="single-pagination-button">
           Next
-          <i class="fa-solid fa-chevron-right"></i>
+          <i class="fa-solid fa-chevron-right ml-1"></i>
         </button>
       </div>
     </main>
 
-    <footer>
+    <footer class="flex justify-center pb-8 gap-4 lg:pb-6">
       <a href="#">Terms of Use</a>
       <a href="#">Privacy Policy</a>
     </footer>

@@ -8,6 +8,7 @@ export default {
     },
     colors: {
       "bg-light": "#f2f2eb",
+      "bg-pink": "#ffe6ff",
       green: "#025951",
       white: "#ffffff",
       gray: "#4a5568",
