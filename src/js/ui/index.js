@@ -201,8 +201,10 @@ export default class NoroffApp extends NoroffAPI {
     },
 
     myPage: () => {
-      const myPageLink = document.querySelector(".my-page");
-      myPageLink.href = `/profile/?name=${NoroffAPI.user}`;
+      const myPageLink = document.querySelectorAll(".my-page");
+      myPageLink.forEach((link) => {
+        link.href = `/profile/?name=${NoroffAPI.user}`;
+      });
     },
 
     post: {
