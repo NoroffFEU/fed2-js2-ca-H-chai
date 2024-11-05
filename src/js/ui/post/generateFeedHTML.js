@@ -12,8 +12,10 @@ export function generateFeedHTML(post) {
   thumbnail.classList.add(
     "thumbnail",
     "rounded-md",
-    "object-fill",
-    "aspect-[4/3]"
+    "object-cover",
+    "object-center",
+    "aspect-[4/3]",
+    "w-full"
   );
   if (post.media?.url) {
     thumbnail.src = post.media.url;
