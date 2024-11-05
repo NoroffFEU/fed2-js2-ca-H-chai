@@ -707,6 +707,10 @@ video {
   gap: 0.75rem;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .gap-5 {
   gap: 1.25rem;
 }
@@ -715,16 +719,8 @@ video {
   gap: 2rem;
 }
 
-.gap-4 {
-  gap: 1rem;
-}
-
 .overflow-hidden {
   overflow: hidden;
-}
-
-.text-wrap {
-  text-wrap: wrap;
 }
 
 .break-words {
@@ -762,9 +758,14 @@ video {
   background-color: rgb(2 89 81 / var(--tw-bg-opacity));
 }
 
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-2 {
@@ -808,12 +809,12 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {
@@ -900,30 +901,24 @@ video {
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   transform: scale(1, 0);
   transform-origin: top;
+  & a {
+    text-decoration: none;
+    text-transform: capitalize;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  & li {
+    text-align: center;
+    padding: 10px 0;
+    opacity: 0;
+    transition: 0.5s;
+  }
 }
-
-/* Hamburger menu button */
 
 .menu-btn:checked ~ .menu {
   transform: scale(1, 1);
   transform-origin: top;
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
-}
-
-/* Hamburger menu text */
-
-.menu a {
-  text-decoration: none;
-  text-transform: capitalize;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.menu li {
-  text-align: center;
-  padding: 10px 0;
-  opacity: 0;
-  transition: 0.5s;
 }
 
 .menu-btn:checked ~ .menu a,
@@ -951,29 +946,24 @@ video {
   width: 28px;
   position: relative;
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    background: #025951;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+  &::before {
+    top: 8px;
+  }
+  &::after {
+    bottom: 8px;
+  }
 }
-
-.navicon:before,
-.navicon:after {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 100;
-  background: #025951;
-  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
-}
-
-.navicon:before {
-  top: 8px;
-}
-
-.navicon:after {
-  bottom: 8px;
-}
-
-/* Hamburger Menu Animation Start */
 
 .menu-btn:checked ~ .menu-icon .navicon:before {
   transform: rotate(-45deg);
@@ -995,15 +985,6 @@ video {
   background: rgba(0, 0, 0, 0);
   transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
 }
-
-/* Hamburger Menu Animation End */
-
-/* Navbar Container */
-
-.navtext-container {
-}
-
-/* Navbar Text */
 
 .navtext {
   text-transform: uppercase;
@@ -1057,16 +1038,16 @@ button:disabled {
     margin-bottom: 2.5rem;
   }
 
+  .lg\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .lg\:mt-4 {
     margin-top: 1rem;
   }
 
   .lg\:mt-44 {
     margin-top: 11rem;
-  }
-
-  .lg\:mt-16 {
-    margin-top: 4rem;
   }
 
   .lg\:flex {

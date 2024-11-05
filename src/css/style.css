@@ -19,28 +19,26 @@
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   transform: scale(1, 0);
   transform-origin: top;
+
+  & a {
+    text-decoration: none;
+    text-transform: capitalize;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  & li {
+    text-align: center;
+    padding: 10px 0;
+    opacity: 0;
+    transition: 0.5s;
+  }
 }
 
-/* Hamburger menu button */
 .menu-btn:checked ~ .menu {
   transform: scale(1, 1);
   transform-origin: top;
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
-}
-
-/* Hamburger menu text */
-.menu a {
-  text-decoration: none;
-  text-transform: capitalize;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.menu li {
-  text-align: center;
-  padding: 10px 0;
-  opacity: 0;
-  transition: 0.5s;
 }
 
 .menu-btn:checked ~ .menu a,
@@ -68,29 +66,28 @@
   width: 28px;
   position: relative;
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    background: #025951;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  &::before {
+    top: 8px;
+  }
+
+  &::after {
+    bottom: 8px;
+  }
 }
 
-.navicon:before,
-.navicon:after {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 100;
-  background: #025951;
-  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
-}
-
-.navicon:before {
-  top: 8px;
-}
-
-.navicon:after {
-  bottom: 8px;
-}
-
-/* Hamburger Menu Animation Start */
 .menu-btn:checked ~ .menu-icon .navicon:before {
   transform: rotate(-45deg);
 }
@@ -110,13 +107,7 @@
   background: rgba(0, 0, 0, 0);
   transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
 }
-/* Hamburger Menu Animation End */
 
-/* Navbar Container */
-.navtext-container {
-}
-
-/* Navbar Text */
 .navtext {
   text-transform: uppercase;
   color: #ddd;
