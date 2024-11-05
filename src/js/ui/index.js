@@ -292,10 +292,24 @@ export default class NoroffApp extends NoroffAPI {
           const postAuthor = postData.author.name;
 
           const editButton = document.createElement("button");
-          editButton.classList.add("edit-button", "button-dark");
+          editButton.classList.add(
+            "edit-button",
+            "text-green",
+            "font-medium",
+            "border-2",
+            "px-4",
+            "py-2",
+            "rounded-md",
+            "bg-bg-light"
+          );
           editButton.textContent = "Edit";
           const editIcon = document.createElement("i");
-          editIcon.classList.add("fa-regular", "fa-pen-to-square");
+          editIcon.classList.add(
+            "fa-regular",
+            "fa-pen-to-square",
+            "text-green",
+            "mr-1"
+          );
           editButton.insertBefore(editIcon, editButton.firstChild);
           editButton.dataset.id = postId;
           if (postAuthor === NoroffAPI.user) {
@@ -306,6 +320,23 @@ export default class NoroffApp extends NoroffAPI {
           const headerNav = document.querySelector(".header-nav");
           headerNav.insertBefore(editButton, headerNav.firstChild);
           editButton.addEventListener("click", () => {
+            window.location.href = `/post/edit/?id=${postId}`;
+          });
+
+          const editButtonSm = document.createElement("button");
+          editButtonSm.classList.add("text-green", "font-semibold");
+          editButtonSm.textContent = "Edit";
+          editButtonSm.dataset.id = postId;
+          if (postAuthor === NoroffAPI.user) {
+            editButton.style.display = "block";
+          } else {
+            editButton.style.display = "none";
+          }
+          const menuListItem = document.createElement("li");
+          menuListItem.appendChild(editButtonSm);
+          const menuList = document.querySelector(".menu");
+          menuList.insertBefore(menuListItem, menuList.firstChild);
+          editButtonSm.addEventListener("click", () => {
             window.location.href = `/post/edit/?id=${postId}`;
           });
 
