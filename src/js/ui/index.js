@@ -873,19 +873,13 @@ export default class NoroffApp extends NoroffAPI {
   animation = {
     headerPadding: () => {
       const header = document.querySelector(".profile-header");
-      const originalPaddingBottom = 18.4;
-      const scrollPaddingBottom = 4;
-      const minWidth = window.matchMedia("(min-width: 1024px)");
-
+      const originalPaddingBottom = 11;
+      const scrollPaddingBottom = 2.5;
       window.addEventListener("scroll", () => {
-        if (minWidth.matches) {
-          if (window.scrollY > 0) {
-            header.style.paddingBottom = `${scrollPaddingBottom}rem`;
-          } else {
-            header.style.paddingBottom = `${originalPaddingBottom}rem`;
-          }
+        if (window.scrollY > 0) {
+          header.style.paddingBottom = `${scrollPaddingBottom}rem`;
         } else {
-          header.style.paddingBottom = "12.8rem";
+          header.style.paddingBottom = `${originalPaddingBottom}rem`;
         }
       });
     },
