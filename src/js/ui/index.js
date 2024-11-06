@@ -615,7 +615,7 @@ export default class NoroffApp extends NoroffAPI {
             toggleButton.disabled = true;
             if (toggleButton.textContent === "Follow") {
               await api.profile.follow(userName);
-              toggleButton.textContent = "Unfollow";
+              toggleButton.textContent = "Following";
             } else {
               await api.profile.unfollow(userName);
               toggleButton.textContent = "Follow";
