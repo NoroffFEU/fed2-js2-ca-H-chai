@@ -2,64 +2,114 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link rel="stylesheet" href="../../style.css" />
     <script type="module" src="../../src/app.js" defer></script>
   </head>
-  <body class="post-body">
-    <header class="post-header">
-      <a href="/post/feed/?page=1">
+  <body class="bg-bg-light font-display">
+    <header
+      class="fixed top-0 right-0 left-0 flex justify-between items-center bg-bg-light p-4 lg:pt-10 lg:pb-10 lg:px-16"
+    >
+      <a href="/post/feed/?page=1" class="w-1/4 md:w-1/6">
         <img src="/public/images/Postlyfe.svg" alt="Logo" class="logo" />
       </a>
-      <nav class="header-nav">
-        <a href="/post/create/" class="new-post-button-desktop button-dark">
-          <i class="fa-solid fa-pen-fancy"></i>
+      <nav class="header-nav lg:flex lg:gap-2">
+        <a
+          href="/post/create/"
+          class="text-green font-medium border-2 px-4 py-2 rounded-md bg-bg-light hidden lg:block"
+        >
+          <i class="fa-solid fa-pen-fancy text-green mr-1"></i>
           New Post
         </a>
-        <button class="logout-button">Log out</button>
+        <button
+          class="logout-button text-green font-medium border-2 px-4 py-2 rounded-md bg-bg-light"
+        >
+          Log out
+        </button>
       </nav>
     </header>
 
-    <main class="post-main">
-      <div class="back-to-feed">
-        <a class="back-to-profile-page">
-          <i class="fa-solid fa-chevron-left"></i>
+    <main class="mt-32 mb-20 px-6 lg:mt-44 lg:px-32">
+      <a
+        href="/post/create/"
+        class="text-bg-light bg-green font-medium px-4 py-2 rounded-md fixed right-6 bottom-10 lg:hidden"
+      >
+        <i class="fa-solid fa-pen-fancy mr-1"></i>
+        New Post
+      </a>
+      <div class="back-to-feed mb-6 lg:mb-12">
+        <a class="back-to-profile-page text-sm">
+          <i class="fa-solid fa-chevron-left mr-1"></i>
         </a>
       </div>
-      <h1>Update Profile</h1>
+      <h1 class="text-3xl text-center font-bold mb-6 lg:text-4xl lg:mb-8">
+        Update Profile
+      </h1>
 
-      <form name="updateProfile" class="update-profile-form">
-        <label for="bio">
+      <form
+        name="updateProfile"
+        class="update-profile-form lg:w-4/5 lg:mx-auto"
+      >
+        <label for="bio" class="font-semibold block">
           Bio
-          <input name="bio" id="bio" type="text" />
+          <input
+            name="bio"
+            id="bio"
+            type="text"
+            class="block w-full border bg-bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <label for="banner">
+        <label for="banner" class="font-semibold block">
           Banner URL
-          <input name="banner[url]" id="banner" type="url" />
+          <input
+            name="banner[url]"
+            id="banner"
+            type="url"
+            class="block w-full border bg-bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <label for="banner-alt">
+        <label for="banner-alt" class="font-semibold block">
           Banner alt
-          <input name="banner[alt]" id="banner-alt" type="text" />
+          <input
+            name="banner[alt]"
+            id="banner-alt"
+            type="text"
+            class="block w-full border bg-bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <label for="avatar">
+        <label for="avatar" class="font-semibold block">
           Avatar URL
-          <input name="avatar[url]" id="avatar" type="url" />
+          <input
+            name="avatar[url]"
+            id="avatar"
+            type="url"
+            class="block w-full border bg-bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <label for="avatar-alt">
+        <label for="avatar-alt" class="font-semibold block">
           Avatar alt
-          <input name="avatar[alt]" id="avatar-alt" type="text" />
+          <input
+            name="avatar[alt]"
+            id="avatar-alt"
+            type="text"
+            class="block w-full border bg-bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <button type="submit" class="submit-type-button">Update Profile</button>
+        <button
+          type="submit"
+          class="submit-type-button w-full text-center font-medium bg-green text-white p-3 text-sm rounded-md mt-4"
+        >
+          Update Profile
+        </button>
       </form>
     </main>
 
-    <footer>
+    <footer class="flex justify-center pb-8 gap-4 lg:pb-6 text-sm">
       <a href="#">Terms of Use</a>
       <a href="#">Privacy Policy</a>
     </footer>
