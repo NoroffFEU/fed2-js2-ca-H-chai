@@ -14,14 +14,19 @@ export default {
       gray: "#4a5568",
       red: "#dc3545",
     },
+    transitionProperty: {
+      "padding-bottom": "padding-bottom",
+    },
     transitionTimingFunction: {
       "nav-transition": "cubic-bezier(0.04, 0.04, 0.12, 0.96)",
+      "pb-ease": "ease",
     },
     transitionDuration: {
-      "nav-transition": "319ms", // equivalent to 0.3192s
+      "nav-transition": "319ms",
+      pb: "400ms",
     },
     transitionDelay: {
-      "nav-transition": "100ms", // equivalent to 0.1008s
+      "nav-transition": "100ms",
     },
     extend: {
       aspectRatio: {
