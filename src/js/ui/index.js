@@ -502,10 +502,30 @@ export default class NoroffApp extends NoroffAPI {
 
           const buttonArea = document.querySelector(".button-area");
           const updateButton = document.createElement("button");
-          updateButton.classList.add("update-button");
+          updateButton.classList.add(
+            "update-button",
+            "text-green",
+            "font-medium",
+            "border-2",
+            "px-4",
+            "py-2",
+            "rounded-md",
+            "bg-bg-light",
+            "mr-0"
+          );
           updateButton.textContent = "Update Profile";
           const followButton = document.createElement("button");
-          followButton.classList.add("follow-button");
+          followButton.classList.add(
+            "follow-button",
+            "text-green",
+            "font-medium",
+            "border-2",
+            "px-4",
+            "py-2",
+            "rounded-md",
+            "bg-bg-light",
+            "mr-0"
+          );
           followButton.id = "toggle-button";
           followButton.textContent = "Follow";
           buttonArea.append(updateButton, followButton);
@@ -810,7 +830,8 @@ export default class NoroffApp extends NoroffAPI {
         const button = document.createElement("button");
         button.textContent = text;
         button.dataset.page = page;
-        button.className = "pagination-button";
+        button.className =
+          "pagination-button w-9 h-9 border-2 border-green rounded-full";
         if (page === this.currentPage) {
           button.classList.add("current-page");
         }
@@ -828,6 +849,13 @@ export default class NoroffApp extends NoroffAPI {
       };
 
       const previousButton = document.createElement("button");
+      previousButton.classList.add(
+        "w-9",
+        "h-9",
+        "border-2",
+        "border-green",
+        "rounded-full"
+      );
       const previousButtonIcon = document.createElement("i");
       previousButtonIcon.classList.add("fa-solid", "fa-chevron-left");
       previousButton.appendChild(previousButtonIcon);
@@ -851,6 +879,13 @@ export default class NoroffApp extends NoroffAPI {
       }
 
       const nextButton = document.createElement("button");
+      nextButton.classList.add(
+        "w-9",
+        "h-9",
+        "border-2",
+        "border-green",
+        "rounded-full"
+      );
       const nextButtonIcon = document.createElement("i");
       nextButtonIcon.classList.add("fa-solid", "fa-chevron-right");
       nextButton.appendChild(nextButtonIcon);

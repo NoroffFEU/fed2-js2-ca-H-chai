@@ -2,57 +2,92 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <script type="module" src="../src/app.js" defer></script>
   </head>
-  <body class="post-body">
-    <header class="post-header profile-header">
+  <body class="bg-bg-light font-display">
+    <header
+      class="profile-header flex justify-between items-center px-4 pt-4 pb-44 sticky top-0 bg-no-repeat bg-cover lg:px-16 lg:pt-10 transition-padding-bottom duration-pb ease-pb-ease"
+    >
       <a href="/post/feed/?page=1" class="back-to-feed-on-profile">
-        <i class="fa-solid fa-chevron-left"></i>
+        <i class="fa-solid fa-chevron-left mr-1"></i>
         Back to Top
       </a>
-      <nav class="header-nav">
-        <a href="/post/create/" class="new-post-button-desktop button-dark">
-          <i class="fa-solid fa-pen-fancy"></i>
+      <nav class="lg:hidden">
+        <input type="checkbox" class="menu-btn hidden" id="menu-btn" />
+        <label for="menu-btn" class="menu-icon"
+          ><span class="navicon"></span
+        ></label>
+        <ul class="menu bg-bg-light">
+          <li>
+            <a class="my-page text-green font-semibold"> My Page </a>
+          </li>
+          <li>
+            <button class="logout-button text-green font-semibold">
+              Log out
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-nav hidden lg:flex lg:gap-2">
+        <a
+          href="/post/create/"
+          class="text-green font-medium border-2 px-4 py-2 rounded-md bg-bg-light"
+        >
+          <i class="fa-solid fa-pen-fancy text-green mr-1"></i>
           New Post
         </a>
-        <a class="my-page">
-          <i class="fa-regular fa-user"></i>
+        <a class="my-page text-green border-2 px-4 py-2 rounded-md bg-bg-light">
+          <i class="fa-solid fa-user"></i>
         </a>
-        <button class="logout-button">Log out</button>
+        <button
+          class="logout-button text-green font-medium border-2 px-4 py-2 rounded-md bg-bg-light"
+        >
+          Log out
+        </button>
       </nav>
     </header>
 
-    <main class="post-main profile-main">
-      <a href="/post/create/" class="new-post-button-mobile button-dark">
-        <i class="fa-solid fa-pen-fancy"></i>
+    <main class="px-6 pt-8 pb-20 lg:px-14 lg:pt-10">
+      <a
+        href="/post/create/"
+        class="text-bg-light bg-green font-medium px-4 py-2 rounded-md fixed right-6 bottom-10 lg:hidden"
+      >
+        <i class="fa-solid fa-pen-fancy mr-1"></i>
         New Post
       </a>
-      <div class="button-area"></div>
-      <div class="profile">
-        <img src="" alt="" class="avatar" />
+      <div class="button-area flex justify-end mb-4"></div>
+      <div class="profile flex items-start mb-12 gap-2">
+        <img src="" alt="" class="avatar w-32 h-32" />
         <div class="user-information">
-          <h1 class="username"></h1>
-          <p class="bio"></p>
-          <ul>
-            <li>Followers: <span class="followers"></span></li>
-            <li>Following: <span class="following"></span></li>
+          <h1 class="username font-bold text-2xl mb-2"></h1>
+          <p class="bio mb-2"></p>
+          <ul class="flex items-center gap-2">
+            <li>
+              Followers: <span class="followers font-semibold ml-1"></span>
+            </li>
+            <li>
+              Following: <span class="following font-semibold ml-1"></span>
+            </li>
           </ul>
-          <p>Posts: <span class="posts"></span></p>
+          <p>Posts: <span class="posts font-semibold ml-1"></span></p>
         </div>
       </div>
-      <div class="feed"></div>
-      <div class="feed-pagination"></div>
+      <div
+        class="feed grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-8 lg:grid-cols-3"
+      ></div>
+      <div
+        class="feed-pagination mt-14 flex justify-center items-center gap-2 text-green font-medium lg:mt-16"
+      ></div>
     </main>
 
-    <footer>
+    <footer class="flex justify-center pb-8 gap-4 lg:pb-6 text-sm">
       <a href="#">Terms of Use</a>
       <a href="#">Privacy Policy</a>
     </footer>
