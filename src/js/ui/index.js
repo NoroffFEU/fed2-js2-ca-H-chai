@@ -246,6 +246,7 @@ export default class NoroffApp extends NoroffAPI {
             );
             if (isConfirmed) {
               await api.post.delete(postId);
+              window.location.href = `/profile/?name=${NoroffAPI.user}`;
             }
           } catch (error) {
             alert(error.message);
