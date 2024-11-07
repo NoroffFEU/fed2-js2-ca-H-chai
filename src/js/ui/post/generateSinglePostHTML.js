@@ -261,7 +261,7 @@ export function generateSinglePostHTML(post) {
     "p-3",
     "border",
     "rounded-md",
-    "bg-bg-light",
+    "bg-light",
     "font-body"
   );
   commentTextArea.placeholder = "Write comment here";

@@ -303,7 +303,7 @@ export default class NoroffApp extends NoroffAPI {
             "px-4",
             "py-2",
             "rounded-md",
-            "bg-bg-light"
+            "bg-light"
           );
           editButton.textContent = "Edit";
           const editIcon = document.createElement("i");
@@ -510,7 +510,7 @@ export default class NoroffApp extends NoroffAPI {
             "px-4",
             "py-2",
             "rounded-md",
-            "bg-bg-light",
+            "bg-light",
             "mr-0"
           );
           updateButton.textContent = "Update Profile";
@@ -523,7 +523,7 @@ export default class NoroffApp extends NoroffAPI {
             "px-4",
             "py-2",
             "rounded-md",
-            "bg-bg-light",
+            "bg-light",
             "mr-0"
           );
           followButton.id = "toggle-button";

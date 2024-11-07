@@ -7,8 +7,8 @@ export default {
       body: ["Archivo", "sans-serif"],
     },
     colors: {
-      "bg-light": "#f2f2eb",
-      "bg-pink": "#ffe6ff",
+      light: "#f2f2eb",
+      pink: "#ffe6ff",
       green: "#025951",
       white: "#ffffff",
       gray: "#4a5568",
