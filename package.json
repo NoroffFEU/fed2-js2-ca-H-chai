@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite && npx tailwindcss -i ./src/css/style.css -o ./style.css --watch",
     "build": "vite build && npx tailwindcss -i ./src/css/style.css -o ./style.css",
-    "tailwind-build": "npx tailwindcss -i ./src/css/style.css -o ./style.css --watch",
+    "tailwind-build": "npx tailwindcss -i ./src/css/style.css -o ./style.css",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },

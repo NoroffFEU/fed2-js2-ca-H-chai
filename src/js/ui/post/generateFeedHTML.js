@@ -2,12 +2,12 @@ import { formatDate } from "../../utilities/formatDate";
 
 export function generateFeedHTML(post) {
   const postContainer = document.createElement("a");
-  postContainer.classList.add("post-container");
+  postContainer.classList.add("post-container", "group");
   postContainer.id = post.id;
   postContainer.href = `/post/?id=${post.id}`;
 
   const figure = document.createElement("figure");
-  figure.classList.add("aspect-[4/3]");
+  figure.classList.add("aspect-[4/3]", "overflow-hidden", "rounded-md");
   const thumbnail = document.createElement("img");
   thumbnail.classList.add(
     "thumbnail",
@@ -15,7 +15,12 @@ export function generateFeedHTML(post) {
     "object-cover",
     "object-center",
     "aspect-[4/3]",
-    "w-full"
+    "w-full",
+    "transition-scale",
+    "duration-scale",
+    "ease-scale",
+    "transform",
+    "group-hover:scale-110"
   );
   if (post.media?.url) {
     thumbnail.src = post.media.url;
