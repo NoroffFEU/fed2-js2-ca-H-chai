@@ -303,16 +303,14 @@ export default class NoroffApp extends NoroffAPI {
             "px-4",
             "py-2",
             "rounded-md",
-            "bg-light"
+            "bg-light",
+            "duration-pb",
+            "hover:text-light",
+            "hover:bg-green"
           );
           editButton.textContent = "Edit";
           const editIcon = document.createElement("i");
-          editIcon.classList.add(
-            "fa-regular",
-            "fa-pen-to-square",
-            "text-green",
-            "mr-1"
-          );
+          editIcon.classList.add("fa-regular", "fa-pen-to-square", "mr-1");
           editButton.insertBefore(editIcon, editButton.firstChild);
           editButton.dataset.id = postId;
           if (postAuthor === NoroffAPI.user) {
@@ -511,7 +509,10 @@ export default class NoroffApp extends NoroffAPI {
             "py-2",
             "rounded-md",
             "bg-light",
-            "mr-0"
+            "mr-0",
+            "duration-pb",
+            "hover:text-light",
+            "hover:bg-green"
           );
           updateButton.textContent = "Update Profile";
           const followButton = document.createElement("button");
@@ -524,7 +525,10 @@ export default class NoroffApp extends NoroffAPI {
             "py-2",
             "rounded-md",
             "bg-light",
-            "mr-0"
+            "mr-0",
+            "duration-pb",
+            "hover:text-light",
+            "hover:bg-green"
           );
           followButton.id = "toggle-button";
           followButton.textContent = "Follow";

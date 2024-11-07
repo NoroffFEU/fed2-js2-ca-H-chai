@@ -275,9 +275,13 @@ export function generateSinglePostHTML(post) {
     "bg-green",
     "text-white",
     "w-full",
+    "border-2",
     "rounded-md",
     "p-3",
-    "font-medium"
+    "font-medium",
+    "duration-pb",
+    "hover:bg-light-green",
+    "hover:text-green"
   );
   commentButton.type = "submit";
   commentButton.innerText = "Add comment";

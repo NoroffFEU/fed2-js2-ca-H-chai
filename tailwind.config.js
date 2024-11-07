@@ -14,6 +14,7 @@ export default {
       gray: "#4a5568",
       red: "#dc3545",
       "light-green": "rgba(2, 89, 81, 0.2)",
+      "light-red": "rgba(220, 53, 69, 0.2)",
     },
     transitionProperty: {
       "padding-bottom": "padding-bottom",
