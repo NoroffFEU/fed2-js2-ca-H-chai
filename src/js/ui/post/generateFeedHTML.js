@@ -47,7 +47,8 @@ export function generateFeedHTML(post) {
     "flex",
     "justify-between",
     "items-center",
-    "mr-4"
+    "mr-4",
+    "hover:text-hover-black"
   );
   const postUserIcon = document.createElement("i");
   postUserIcon.classList.add("fa-regular", "fa-user", "mr-1");

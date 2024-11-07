@@ -7,6 +7,7 @@ export default {
       body: ["Archivo", "sans-serif"],
     },
     colors: {
+      black: "#0a0a0a",
       light: "#f2f2eb",
       pink: "#ffe6ff",
       green: "#025951",
@@ -15,6 +16,7 @@ export default {
       red: "#dc3545",
       "light-green": "rgba(2, 89, 81, 0.2)",
       "light-red": "rgba(220, 53, 69, 0.2)",
+      "hover-black": "rgba(10, 10, 10, 0.5)",
     },
     transitionProperty: {
       "padding-bottom": "padding-bottom",
