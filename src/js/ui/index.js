@@ -462,6 +462,8 @@ export default class NoroffApp extends NoroffAPI {
           const userProfile = await api.profile.readProfile(name);
           const postData = userPostsData.data;
           const userData = userProfile.data;
+
+          console.log(userData);
           const userAvatar = document.querySelector(".avatar");
           userAvatar.src = userData.avatar.url;
           const userName = document.querySelector(".username");
