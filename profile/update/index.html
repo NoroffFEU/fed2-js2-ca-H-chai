@@ -1,67 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=archivo@300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" src="../../src/app.js" defer></script>
   </head>
-  <body class="post-body">
-    <header class="post-header">
-      <a href="/post/feed/?page=1">
-        <img src="/public/images/noroff-logo.png" alt="Logo" class="logo" />
+  <body>
+    <header
+      class="p-3 pt-lg-6 px-lg-9 pb-lg-0 d-flex justify-content-between align-items-center sticky-lg-top"
+    >
+      <a href="/post/feed/?page=1" class="col-2 col-md-2">
+        <img src="/public/images/Postlyfe.svg" alt="Logo" class="col-12" />
       </a>
-      <nav class="header-nav">
-        <a href="/post/create/" class="new-post-button-desktop button-dark">
-          <i class="fa-solid fa-pen-fancy"></i>
+      <nav
+        class="header-nav d-flex justify-content-end align-items-center gap-2 col-9"
+      >
+        <a
+          href="/post/create/"
+          class="btn btn-light hover-dark d-none border border-2 d-lg-inline-block px-3 py-2 rounded"
+        >
+          <i class="fa-solid fa-pen-fancy me-1"></i>
           New Post
         </a>
-        <button class="logout-button">Log out</button>
+        <button
+          class="logout-button button-border border border-2 px-3 py-2 rounded btn btn-light"
+        >
+          Log out
+        </button>
       </nav>
     </header>
 
-    <main class="post-main">
-      <div class="back-to-feed">
-        <a class="back-to-profile-page">
-          <i class="fa-solid fa-chevron-left"></i>
+    <main class="mt-5 mb-10 px-4 mt-lg-10 px-lg-11">
+      <a
+        href="/post/create/"
+        class="d-lg-none btn btn-primary border-2 fixed-bottom text-end me-4 mb-6 px-3 py-2 rounded fw-medium"
+      >
+        <i class="fa-solid fa-pen-fancy me-1"></i>
+        New Post
+      </a>
+      <div
+        class="back-to-feed d-inline-blockw-lg-80 mx-lg-auto mb-4 mb-lg-7 hover-underline"
+      >
+        <a class="back-to-profile-page font-size-sm">
+          <i class="fa-solid fa-chevron-left me-1"></i>
         </a>
       </div>
-      <h1>Update Profile</h1>
+      <h1 class="text-center mb-4 mb-lg-5">Update Profile</h1>
 
-      <form name="updateProfile" class="update-profile-form">
-        <label for="bio">
-          Bio
-          <input name="bio" id="bio" type="text" />
-        </label>
-        <label for="banner">
-          Banner URL
-          <input name="banner[url]" id="banner" type="url" />
-        </label>
-        <label for="banner-alt">
-          Banner alt
-          <input name="banner[alt]" id="banner-alt" type="text" />
-        </label>
-        <label for="avatar">
-          Avatar URL
-          <input name="avatar[url]" id="avatar" type="url" />
-        </label>
-        <label for="avatar-alt">
-          Avatar alt
-          <input name="avatar[alt]" id="avatar-alt" type="text" />
-        </label>
-        <button type="submit" class="submit-type-button">Update Profile</button>
+      <form name="updateProfile" class="update-profile-form w-lg-80 mx-lg-auto">
+        <div class="form-group mb-3">
+          <label for="bio" class="form-label col-12 mb-2 fw-bold"> Bio </label>
+          <input name="bio" id="bio" type="text" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+          <label for="banner" class="form-label col-12 mb-2 fw-bold">
+            Banner URL
+          </label>
+          <input
+            name="banner[url]"
+            id="banner"
+            type="url"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="banner-alt" class="form-label col-12 mb-2 fw-bold">
+            Banner alt
+          </label>
+          <input
+            name="banner[alt]"
+            id="banner-alt"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="avatar" class="form-label col-12 mb-2 fw-bold">
+            Avatar URL
+          </label>
+          <input
+            name="avatar[url]"
+            id="avatar"
+            type="url"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="avatar-alt" class="form-label col-12 mb-2 fw-bold">
+            Avatar alt
+          </label>
+          <input
+            name="avatar[alt]"
+            id="avatar-alt"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <button
+          type="submit"
+          class="font-size-sm btn btn-primary border-2 col-12 mt-3"
+        >
+          Update Profile
+        </button>
       </form>
     </main>
 
-    <footer>
-      <a href="#">Terms Of Use</a>
-      <a href="#">Privacy Policy</a>
+    <footer
+      class="d-flex justify-content-center pb-5 pb-lg-4 gap-4 font-size-sm"
+    >
+      <a href="#" class="hover-underline">Terms of Use</a>
+      <a href="#" class="hover-underline">Privacy Policy</a>
     </footer>
   </body>
 </html>

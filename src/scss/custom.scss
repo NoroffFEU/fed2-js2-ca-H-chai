@@ -1,0 +1,144 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  // 4px
+  2: $spacer * 0.5,
+  // 8px
+  3: $spacer,
+  // 16px
+  4: $spacer * 1.5,
+  // 24px
+  5: $spacer * 2,
+  // 32px
+  6: $spacer * 2.5,
+  // 40px
+  7: $spacer * 3,
+  // 48px
+  8: $spacer * 3.5,
+  // 56px
+  9: $spacer * 4,
+  // 64px
+  10: $spacer * 5,
+  // 80px
+  11: $spacer * 8,
+  // 128px
+  12: $spacer * 11,
+  // 176px
+) !default;
+
+$font-family-base: "Clash Display", sans-serif;
+$font-weight-medium: 500;
+$headings-font-weight: 600;
+
+$light: #f2f2eb;
+$dark: #e1d2c4;
+$black: #0d0d0d;
+$primary: #025951;
+$body-color: $black;
+$body-bg: $light;
+$border-color: $primary;
+
+$btn-color: $primary;
+$btn-link-hover-color: $primary;
+$btn-font-weight: $font-weight-medium;
+
+$input-border-color: $black;
+$input-btn-padding-y: 0.75rem;
+$input-font-family: "Archivo", sans-serif;
+
+$link-color: $black;
+$link-color-rgb: (13, 13, 13);
+$link-decoration: none;
+
+$form-label-margin-bottom: 0.75rem;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./imports/feed.scss";
+@import "./imports/single-post.scss";
+@import "./imports/typography.scss";
+@import "./imports/profile.scss";
+@import "./imports/header.scss";
+
+.fixed-bottom {
+  left: auto !important;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.font-content {
+  font-family: "Archivo", sans-serif;
+}
+
+.color-green {
+  color: $primary;
+}
+
+.bg-pink {
+  background-color: #ffe6ff;
+}
+
+.bg-light {
+  background-color: #f2f2eb;
+}
+
+.btn-light {
+  --bs-btn-color: #025951;
+}
+
+.btn:disabled {
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+
+.btn-light:hover {
+  background-color: $primary;
+  color: $light;
+  border-color: $primary;
+}
+
+.btn-primary:hover {
+  background-color: $light;
+  color: $primary;
+  border-color: $primary;
+}
+
+.btn-danger:hover {
+  background-color: $light;
+  color: $danger;
+  border-color: $danger;
+}
+
+.hover-dark:hover {
+  background-color: #025951;
+  color: $light;
+}
+
+.hover-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hover-color-opacity {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, lg)) {
+  .w-lg-80 {
+    width: 80%;
+  }
+}

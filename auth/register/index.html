@@ -1,28 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=archivo@300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" src="../../src/app.js" defer></script>
   </head>
 
-  <body>
-    <header>
+  <body class="d-flex flex-column justify-content-between min-vh-100">
+    <header class="p-3 pt-lg-6 px-lg-9 pb-lg-0">
       <a href="/">
-        <img src="/public/images/noroff-logo.png" alt="Logo" class="logo" />
+        <img
+          src="/public/images/Postlyfe.svg"
+          alt="Logo"
+          class="col-3 col-md-2"
+        />
       </a>
     </header>
 
-    <main class="auth-main">
-      <h1 class="page-title">Register</h1>
-
-      <form name="register">
-        <div>
-          <label for="name"
-            ><input
+    <main class="px-6 mb-10">
+      <h1 class="mb-5 mb-lg-6 text-center">Register</h1>
+      <form name="register" class="w-lg-80 mx-lg-auto">
+        <div class="form-group text-center">
+          <label for="name" class="form-label col-12">
+            <input
+              class="form-control"
               id="name"
               type="text"
               name="name"
@@ -31,12 +38,14 @@
               maxlength="20"
               pattern="^[\w]+$"
               title="Please enter a username using only letters and numbers"
-          /></label>
+            />
+          </label>
         </div>
 
-        <div>
-          <label for="email"
-            ><input
+        <div class="form-group text-center">
+          <label for="email" class="form-label col-12">
+            <input
+              class="form-control"
               id="email"
               type="email"
               name="email"
@@ -44,33 +53,43 @@
               required
               pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
               title="Please enter a valid noroff.no or stud.noroff.no address"
-          /></label>
+            />
+          </label>
         </div>
 
-        <div>
-          <label for="password"
-            ><input
+        <div class="form-group text-center">
+          <label for="password" class="form-label col-12">
+            <input
+              class="form-control"
               type="password"
               name="password"
               id="password"
               placeholder="Password"
               required
               minlength="8"
-          /></label>
+            />
+          </label>
         </div>
 
-        <button type="submit" class="submit-type-button">Register</button>
-        <p class="auth-info">
-          You already have an account?<a href="/auth/login/" class="auth-link"
-            >Log in</a
-          >
+        <button
+          type="submit"
+          class="font-size-sm btn btn-primary border-2 col-12 mt-lg-3"
+        >
+          Register
+        </button>
+
+        <p class="mt-4 text-center font-size-sm">
+          You already have an account?
+          <a href="/auth/login/" class="ms-1 fw-semibold">Log in</a>
         </p>
       </form>
     </main>
 
-    <footer>
-      <a href="#">Terms Of Use</a>
-      <a href="#">Privacy Policy</a>
+    <footer
+      class="d-flex justify-content-center pb-5 pb-lg-4 gap-4 font-size-sm"
+    >
+      <a href="#" class="hover-underline">Terms of Use</a>
+      <a href="#" class="hover-underline">Privacy Policy</a>
     </footer>
   </body>
 </html>

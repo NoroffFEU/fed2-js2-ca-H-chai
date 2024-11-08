@@ -5,12 +5,27 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && sass src/scss:dist/css",
     "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sass-build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css & live-server",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "live-server": "^1.2.2",
+    "prettier": "^3.3.3",
+    "sass": "^1.80.4",
     "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.{html,scss,js,css,md}": "prettier --write",
+    "*.{js,css,md}": "prettier --write"
   }
 }

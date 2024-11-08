@@ -5,10 +5,9 @@ import { generateFeedHTML } from "./post/generateFeedHTML.js";
 import { generateSinglePostHTML } from "./post/generateSinglePostHTML.js";
 
 export default class NoroffApp extends NoroffAPI {
-
   constructor() {
-    super()
-    this.router()
+    super();
+    this.router();
     this.replyToId = null;
   }
 
@@ -33,14 +32,14 @@ export default class NoroffApp extends NoroffAPI {
         await this.views.postCreate();
         break;
       case "/post/feed/":
-      await this.views.feed();
-      break;
+        await this.views.feed();
+        break;
       case "/profile/":
         await this.views.profile();
         break;
       case "/profile/update/":
-      await this.views.profileUpdate();
-      break;
+        await this.views.profileUpdate();
+        break;
       default:
         await this.views.notFound();
     }
@@ -52,13 +51,15 @@ export default class NoroffApp extends NoroffAPI {
       const form = event.target;
       const formData = new FormData(form);
       return Object.fromEntries(formData.entries());
-    }
-  }
+    },
+  };
 
   setReplyToId(event) {
     const existingReplyMessage = document.querySelector(".reply-message");
-    const originalCommentToReset = document.querySelector(".comment-item[data-replying='true']");
-    
+    const originalCommentToReset = document.querySelector(
+      ".comment-item[data-replying='true']",
+    );
+
     if (originalCommentToReset) {
       originalCommentToReset.style.backgroundColor = "transparent";
       existingReplyMessage.innerHTML = "";
@@ -68,11 +69,11 @@ export default class NoroffApp extends NoroffAPI {
     const originalComment = event.target.closest(".comment-item");
     this.replyToId = Number(originalComment.id);
     const originalCommentUser = originalComment.dataset.username;
-    originalComment.style.backgroundColor = "#dedede";
-    
-    existingReplyMessage.innerHTML = `<button class="cancel" type="button"><i class="fa-solid fa-circle-xmark"></i></button>Replying to <span class="reply-to">${originalCommentUser}</span>`;
+    originalComment.style.backgroundColor = "#e1d2c4";
+
+    existingReplyMessage.innerHTML = `<button class="cancel border-0" type="button"><i class="fa-solid fa-circle-xmark"></i></button>Replying to <span class="reply-to">${originalCommentUser}</span>`;
     originalComment.dataset.replying = "true";
-    
+
     const cancelButton = document.querySelector(".cancel");
     cancelButton.addEventListener("click", () => {
       existingReplyMessage.innerHTML = "";
@@ -81,20 +82,12 @@ export default class NoroffApp extends NoroffAPI {
       originalComment.dataset.replying = "false";
     });
   }
-  
-  setupReplyButtons() {
-    const replyButtons = document.querySelectorAll(".reply-button");
-    replyButtons.forEach(button => {
-      button.addEventListener("click", (event) => this.setReplyToId(event));
-    });
-  }
-  
 
   setupReplyButtons() {
     const replyButtons = document.querySelectorAll(".reply-button");
-    replyButtons.forEach(button => {
+    replyButtons.forEach((button) => {
       button.addEventListener("click", (event) => this.setReplyToId(event));
-    })
+    });
   }
 
   views = {
@@ -112,7 +105,7 @@ export default class NoroffApp extends NoroffAPI {
       this.events.logout();
       this.events.myPage();
       const params = new URLSearchParams(window.location.search);
-      const page = params.get('page') || localStorage.getItem("page") || 1;
+      const page = params.get("page") || localStorage.getItem("page") || 1;
       this.events.post.displayPosts(Number(page));
     },
 
@@ -144,7 +137,7 @@ export default class NoroffApp extends NoroffAPI {
       this.events.myPage();
       this.animation.headerPadding();
       const params = new URLSearchParams(window.location.search);
-      const page = params.get('page') || 1;
+      const page = params.get("page") || 1;
       this.events.profile.displayProfilePage(Number(page));
     },
 
@@ -156,30 +149,30 @@ export default class NoroffApp extends NoroffAPI {
 
     notFound: async () => {
       alert("Page cannot be found in /src/views");
-    }
-  }
+    },
+  };
 
-  currentPage = 1;  
+  currentPage = 1;
 
   events = {
     login: async (event) => {
       const data = NoroffApp.form.handleSubmit(event);
 
       try {
-        await api.auth.login(data)
-      } catch(error) {
+        await api.auth.login(data);
+      } catch (error) {
         alert(error.message);
       }
     },
 
     register: async (event) => {
       const data = NoroffApp.form.handleSubmit(event);
-      const { name, email} = data;
+      const { name, email } = data;
       try {
         await api.auth.register(data);
         alert(`Registration successful!\nUsername: ${name}\nEmail: ${email}`);
         window.location.href = "/auth/login/";
-      } catch(error) {
+      } catch (error) {
         alert(`${error.message}.\nPlease try again.`);
       }
     },
@@ -188,39 +181,46 @@ export default class NoroffApp extends NoroffAPI {
       const logoutButton = document.querySelector(".logout-button");
       logoutButton.addEventListener("click", (event) => {
         event.preventDefault();
-  
+
         localStorage.removeItem("user");
         localStorage.removeItem("token");
         localStorage.removeItem("page");
-        
+
         alert("You have successfully logged out.");
         window.location.href = "/";
       });
     },
 
     myPage: () => {
-      const myPageLink = document.querySelector(".my-page");
-      myPageLink.href = `/profile/?name=${NoroffAPI.user}`;
+      const myPageLink = document.querySelectorAll(".my-page");
+      myPageLink.forEach((link) => {
+        link.href = `/profile/?name=${NoroffAPI.user}`;
+      });
     },
 
     post: {
       create: async (event) => {
         const data = NoroffApp.form.handleSubmit(event);
         const media = {
-          url: data['media[url]'],
-          alt: data['media[alt]']
+          url: data["media[url]"],
+          alt: data["media[alt]"],
         };
         const { title, body, tags } = data;
-        const tagsArray = tags ? tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0) : [];
+        const tagsArray = tags
+          ? tags
+              .split(",")
+              .map((tag) => tag.trim())
+              .filter((tag) => tag.length > 0)
+          : [];
 
         try {
-          await api.post.create({ 
+          await api.post.create({
             title,
             body,
             tags: tagsArray,
-            media
-          })
-        } catch(error) {
+            media,
+          });
+        } catch (error) {
           alert(error.message);
         }
       },
@@ -230,16 +230,18 @@ export default class NoroffApp extends NoroffAPI {
         deleteButton.addEventListener("click", async () => {
           try {
             const params = new URLSearchParams(window.location.search);
-            const postId = params.get('id');
+            const postId = params.get("id");
 
-            const isConfirmed = window.confirm("Are you sure you want to delete this post?");
+            const isConfirmed = window.confirm(
+              "Are you sure you want to delete this post?",
+            );
             if (isConfirmed) {
-              await api.post.delete(postId)
+              await api.post.delete(postId);
             }
           } catch (error) {
             alert(error.message);
           }
-        })
+        });
       },
 
       displayPosts: async (page = 1) => {
@@ -247,111 +249,139 @@ export default class NoroffApp extends NoroffAPI {
           const posts = await api.posts.getPosts(12, page);
           const { data, meta } = posts;
           const { currentPage, pageCount } = meta;
-          const postFeed = document.querySelector('.feed');
-          postFeed.innerHTML = '';
-          data.forEach(post => {
+          const postFeed = document.querySelector(".row");
+          postFeed.innerHTML = "";
+          data.forEach((post) => {
             const postHTML = generateFeedHTML(post);
             postFeed.appendChild(postHTML);
-          })
+          });
           const newUrl = `${window.location.pathname}?page=${page}`;
-          window.history.replaceState({}, '', newUrl);
+          window.history.replaceState({}, "", newUrl);
           this.pagination.feedPagination(currentPage, pageCount);
           window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
 
           const article = document.querySelectorAll(".post-container");
-          article.forEach(post => {
+          article.forEach((post) => {
             post.addEventListener("click", () => {
               const params = new URLSearchParams(window.location.search);
-              const pageNumber = params.get('page');
+              const pageNumber = params.get("page");
               localStorage.setItem("page", pageNumber);
-            })
+            });
           });
-
-        } catch(error) {
-          alert(error.message)
+        } catch (error) {
+          alert(error.message);
         }
       },
 
       displaySinglePost: async () => {
         try {
           const params = new URLSearchParams(window.location.search);
-          const postId = params.get('id');
+          const postId = params.get("id");
           const post = await api.post.readPost(postId);
           const postData = post.data;
           const postAuthor = postData.author.name;
 
           const editButton = document.createElement("button");
-          editButton.classList.add("edit-button", "button-dark");
+          editButton.classList.add(
+            "nav-link",
+            "btn",
+            "btn-light",
+            "px-3",
+            "py-2",
+            "rounded",
+            "button-border",
+            "border-none",
+            "nav-bg-pink",
+          );
           editButton.textContent = "Edit";
           const editIcon = document.createElement("i");
-          editIcon.classList.add("fa-regular", "fa-pen-to-square");
+          editIcon.classList.add("fa-regular", "fa-pen-to-square", "me-1");
           editButton.insertBefore(editIcon, editButton.firstChild);
           editButton.dataset.id = postId;
-          if(postAuthor === NoroffAPI.user) {
+          if (postAuthor === NoroffAPI.user) {
             editButton.style.display = "block";
           } else {
             editButton.style.display = "none";
           }
-          const headerNav = document.querySelector(".header-nav");
-          headerNav.insertBefore(editButton, headerNav.firstChild);
+          const navItem = document.createElement("div");
+          navItem.classList.add("nav-item");
+          navItem.appendChild(editButton);
+          const navbarUl = document.querySelector(".navbar-nav");
+          navbarUl.insertBefore(editButton, navbarUl.firstChild);
           editButton.addEventListener("click", () => {
             window.location.href = `/post/edit/?id=${postId}`;
-          })
+          });
 
-          const singlePostFeed = document.querySelector('.single-post');
+          const singlePostFeed = document.querySelector(".single-post");
           singlePostFeed.innerHTML = "";
           const singlePostHTML = generateSinglePostHTML(postData);
           singlePostFeed.appendChild(singlePostHTML);
 
-          const backProfileButton = document.querySelector(".back-to-profile-page");
+          const backProfileButton = document.querySelector(
+            ".back-to-profile-page",
+          );
           backProfileButton.href = `/profile/?name=${postAuthor}`;
           backProfileButton.textContent = `${postAuthor}'s page`;
           const backIcon = document.createElement("i");
-          backIcon.classList.add("fa-solid", "fa-chevron-left", "back-to-profile-icon");
-          backProfileButton.insertBefore(backIcon, backProfileButton.firstChild);
+          backIcon.classList.add(
+            "fa-solid",
+            "fa-chevron-left",
+            "back-to-profile-icon",
+            "me-1",
+          );
+          backProfileButton.insertBefore(
+            backIcon,
+            backProfileButton.firstChild,
+          );
 
           const form = document.forms["comment"];
           form.addEventListener("submit", this.events.post.comment);
 
-          const backButton = document.querySelector(".back-link-on-single-page");
+          const backButton = document.querySelector(
+            ".back-link-on-single-page",
+          );
           const previousPage = localStorage.getItem("page");
           backButton.href = `/post/feed/?page=${previousPage}`;
 
           this.events.post.deleteComment();
           this.setupReplyButtons();
           this.pagination.singlePostPagination();
-        } catch(error) {
-          alert(error.message)
+        } catch (error) {
+          alert(error.message);
         }
       },
 
       update: async () => {
         try {
           const params = new URLSearchParams(window.location.search);
-          const postId = params.get('id');
+          const postId = params.get("id");
           const post = await api.post.readPost(postId);
           const { data } = post;
           const { title, body, tags, media } = data;
 
-          document.getElementById('title').value = title;
-          document.getElementById('content').value = body;
-          document.getElementById('tags').value = tags.join(',');
-          document.getElementById('img-url').value = media.url;
-          document.getElementById('img-alt').value = media.alt;
+          document.getElementById("title").value = title;
+          document.getElementById("content").value = body;
+          document.getElementById("tags").value = tags.join(",");
+          document.getElementById("img-url").value = media.url;
+          document.getElementById("img-alt").value = media.alt;
 
-          document.forms["editPost"].addEventListener("submit", async (event) => {
-            const updatedData = NoroffApp.form.handleSubmit(event);
-            updatedData.tags = updatedData.tags.split(',').map(tag => tag.trim());
-            updatedData.media = {
-              url: updatedData['media[url]'],
-              alt: updatedData['media[alt]']
-            };
-            await api.post.update(postId, updatedData);
-          });
-      
+          document.forms["editPost"].addEventListener(
+            "submit",
+            async (event) => {
+              const updatedData = NoroffApp.form.handleSubmit(event);
+              updatedData.tags = updatedData.tags
+                .split(",")
+                .map((tag) => tag.trim());
+              updatedData.media = {
+                url: updatedData["media[url]"],
+                alt: updatedData["media[alt]"],
+              };
+              await api.post.update(postId, updatedData);
+            },
+          );
         } catch (error) {
           alert(error.message);
         }
@@ -366,11 +396,14 @@ export default class NoroffApp extends NoroffAPI {
         }
 
         const params = new URLSearchParams(window.location.search);
-        const postId = params.get('id');
-        
-        if(this.replyToId) {
+        const postId = params.get("id");
+
+        if (this.replyToId) {
           try {
-            await api.post.comment(postId, { body: comment, replyToId: this.replyToId });
+            await api.post.comment(postId, {
+              body: comment,
+              replyToId: this.replyToId,
+            });
             location.reload();
           } catch (error) {
             alert(error.message);
@@ -386,16 +419,20 @@ export default class NoroffApp extends NoroffAPI {
       },
 
       deleteComment: () => {
-        const commentDeleteButtons = document.querySelectorAll(".comment-delete-button");
-        commentDeleteButtons.forEach(button => {
+        const commentDeleteButtons = document.querySelectorAll(
+          ".comment-delete-button",
+        );
+        commentDeleteButtons.forEach((button) => {
           button.addEventListener("click", async (event) => {
             try {
               const params = new URLSearchParams(window.location.search);
-              const postId = params.get('id');
+              const postId = params.get("id");
               const commentItem = event.target.closest(".comment-item");
               const commentID = commentItem.id;
-              const isConfirmed = window.confirm("Are you sure you want to delete this comment?");
-              if(isConfirmed) {
+              const isConfirmed = window.confirm(
+                "Are you sure you want to delete this comment?",
+              );
+              if (isConfirmed) {
                 await api.post.deleteComment(postId, commentID);
                 commentItem.remove();
               }
@@ -406,72 +443,99 @@ export default class NoroffApp extends NoroffAPI {
             } catch (error) {
               alert(error.message);
             }
-          })
-        })
+          });
+        });
       },
-
     },
 
     profile: {
       displayProfilePage: async (page = 1) => {
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
+        const name = params.get("name");
 
         try {
-          const userPostsData = await api.profile.readUsersPosts(name, 12, page);
+          const userPostsData = await api.profile.readUsersPosts(
+            name,
+            12,
+            page,
+          );
           const userProfile = await api.profile.readProfile(name);
           const postData = userPostsData.data;
-          const userData = userProfile.data
+          const userData = userProfile.data;
+
+          console.log(userData);
           const userAvatar = document.querySelector(".avatar");
           userAvatar.src = userData.avatar.url;
           const userName = document.querySelector(".username");
           userName.textContent = userData.name;
           const bio = document.querySelector(".bio");
-          bio.textContent = userData.bio
-          document.querySelector(".followers").textContent = userData._count.followers;
-          document.querySelector(".following").textContent = userData._count.following;
+          bio.textContent = userData.bio;
+          document.querySelector(".followers").textContent =
+            userData._count.followers;
+          document.querySelector(".following").textContent =
+            userData._count.following;
           document.querySelector(".posts").textContent = userData._count.posts;
           const profileHeader = document.querySelector(".profile-header");
           const bannerURL = userData.banner.url;
           profileHeader.style.backgroundImage = `url(${bannerURL})`;
+          profileHeader.style.backgroundRepeat = "no-repeat";
+          profileHeader.style.backgroundSize = "cover";
 
           const buttonArea = document.querySelector(".button-area");
-          const updateButton= document.createElement("button");
-          updateButton.classList.add("update-button");
+          const updateButton = document.createElement("button");
+          updateButton.classList.add(
+            "update-button",
+            "border",
+            "border-2",
+            "px-3",
+            "py-2",
+            "rounded",
+            "btn",
+            "btn-light",
+          );
           updateButton.textContent = "Update Profile";
-          const followButton= document.createElement("button");
-          followButton.classList.add("follow-button");
+          const followButton = document.createElement("button");
+          followButton.classList.add(
+            "follow-button",
+            "btn",
+            "border",
+            "border-2",
+            "px-3",
+            "py-2",
+            "rounded",
+            "btn-light",
+          );
           followButton.id = "toggle-button";
           followButton.textContent = "Follow";
-          buttonArea.append(updateButton, followButton)
-          if(name === NoroffAPI.user) {
+          buttonArea.append(updateButton, followButton);
+          if (name === NoroffAPI.user) {
             updateButton.style.display = "block";
-            followButton.style.display = "none"
+            followButton.style.display = "none";
           } else {
             updateButton.style.display = "none";
-            followButton.style.display = "block"
+            followButton.style.display = "block";
           }
           updateButton.addEventListener("click", () => {
-            window.location.href = "/profile/update/"
-          })
-          const postFeed = document.querySelector('.feed');
-          postFeed.innerHTML = '';
-          postData.forEach(post => {
+            window.location.href = "/profile/update/";
+          });
+          const postFeed = document.querySelector(".row");
+          postFeed.innerHTML = "";
+          postData.forEach((post) => {
             const postHTML = generateFeedHTML(post);
             postFeed.appendChild(postHTML);
           });
           const totalPosts = userData._count.posts;
           const pageCount = Math.ceil(totalPosts / 12);
           const newUrl = `${window.location.pathname}?name=${name}&page=${page}`;
-          window.history.replaceState({}, '', newUrl);
+          window.history.replaceState({}, "", newUrl);
           this.currentPage = page;
           this.pagination.profilePagination(this.currentPage, pageCount);
           window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
           this.events.profile.follow();
-        } catch(error) {
+        } catch (error) {
           alert(error.message);
         }
       },
@@ -483,33 +547,46 @@ export default class NoroffApp extends NoroffAPI {
           const { data } = userData;
           const { bio, avatar, banner } = data;
 
-          document.getElementById("bio").value = bio || '';
-          document.getElementById("banner").value = banner.url || '';
-          document.getElementById("banner-alt").value = banner.alt || '';
-          document.getElementById("avatar").value = avatar.url || '';
-          document.getElementById("avatar-alt").value = avatar.alt || '';
-          document.forms["updateProfile"].addEventListener("submit", async(event) => {
-            event.preventDefault();
-            const updatedProfile = NoroffApp.form.handleSubmit(event);
-            updatedProfile.banner = {
-              url: updatedProfile["banner[url]"],
-              alt: updatedProfile["banner[alt]"]
-            };
-            updatedProfile.avatar = {
-              url: updatedProfile["avatar[url]"],
-              alt: updatedProfile["avatar[alt]"]
-            };
-            await api.profile.update(userName, updatedProfile);
-          });
+          document.getElementById("bio").value = bio || "";
+          document.getElementById("banner").value = banner.url || "";
+          document.getElementById("banner-alt").value = banner.alt || "";
+          document.getElementById("avatar").value = avatar.url || "";
+          document.getElementById("avatar-alt").value = avatar.alt || "";
+          document.forms["updateProfile"].addEventListener(
+            "submit",
+            async (event) => {
+              event.preventDefault();
+              const updatedProfile = NoroffApp.form.handleSubmit(event);
+              updatedProfile.banner = {
+                url: updatedProfile["banner[url]"],
+                alt: updatedProfile["banner[alt]"],
+              };
+              updatedProfile.avatar = {
+                url: updatedProfile["avatar[url]"],
+                alt: updatedProfile["avatar[alt]"],
+              };
+              await api.profile.update(userName, updatedProfile);
+            },
+          );
 
-          const backProfileButton = document.querySelector(".back-to-profile-page");
+          const backProfileButton = document.querySelector(
+            ".back-to-profile-page",
+          );
           backProfileButton.href = `/profile/?name=${NoroffAPI.user}`;
           backProfileButton.textContent = "My profile page";
           const backIcon = document.createElement("i");
-          backIcon.classList.add("fa-solid", "fa-chevron-left", "back-to-profile-icon");
-          backProfileButton.insertBefore(backIcon, backProfileButton.firstChild);
+          backIcon.classList.add(
+            "fa-solid",
+            "fa-chevron-left",
+            "back-to-profile-icon",
+            "me-1",
+          );
+          backProfileButton.insertBefore(
+            backIcon,
+            backProfileButton.firstChild,
+          );
         } catch (error) {
-          alert(error.message)
+          alert(error.message);
         }
       },
 
@@ -518,7 +595,7 @@ export default class NoroffApp extends NoroffAPI {
         toggleButton.addEventListener("click", async () => {
           try {
             const params = new URLSearchParams(window.location.search);
-            const userName = params.get('name');
+            const userName = params.get("name");
             toggleButton.disabled = true;
             if (toggleButton.textContent === "Follow") {
               await api.profile.follow(userName);
@@ -535,54 +612,66 @@ export default class NoroffApp extends NoroffAPI {
             alert(error.message);
           }
           toggleButton.disabled = false;
-        })
+        });
       },
-    }
-  }
+    },
+  };
 
   pagination = {
     feedPagination: async (currentPage, pageCount) => {
-      const paginationContainer = document.querySelector('.feed-pagination');
-      paginationContainer.innerHTML = '';
+      const paginationContainer = document.querySelector(".feed-pagination");
+      paginationContainer.innerHTML = "";
 
       const createButton = (text, page) => {
-        const button = document.createElement('button');
+        const button = document.createElement("button");
         button.textContent = text;
         button.dataset.page = page;
-        button.className = 'pagination-button';
-        if(page === currentPage) {
-          button.classList.add("current-page");
+        button.className = "rounded-circle border border-2 btn btn-light";
+        if (page === currentPage) {
+          button.classList.add("current-page", "btn-primary");
+          button.classList.remove("btn-light");
         }
-        button.addEventListener('click', () => {
+        button.addEventListener("click", () => {
           this.events.post.displayPosts(page);
         });
         return button;
       };
 
       const createEllipsis = () => {
-        const ellipsis = document.createElement('span');
+        const ellipsis = document.createElement("span");
+        ellipsis.classList.add("color-green");
         ellipsis.textContent = "...";
         return ellipsis;
-      }
-      
-      const previousButton = document.createElement('button')
+      };
+
+      const previousButton = document.createElement("button");
+      previousButton.classList.add(
+        "rounded-circle",
+        "border",
+        "border-2",
+        "btn",
+        "btn-light",
+      );
       const previousButtonIcon = document.createElement("i");
-      previousButtonIcon.classList.add("fa-solid", "fa-chevron-left");
+      previousButtonIcon.classList.add(
+        "fa-solid",
+        "fa-chevron-left",
+        "color-green",
+      );
       previousButton.appendChild(previousButtonIcon);
       paginationContainer.appendChild(previousButton);
       previousButton.addEventListener("click", () => {
         if (currentPage > 1) {
-          this.events.post.displayPosts(currentPage -1);
+          this.events.post.displayPosts(currentPage - 1);
         }
-      })
+      });
 
       if (currentPage === 1) {
         previousButton.disabled = true;
-        previousButton.style.cursor = "not-allowed";
       } else {
         previousButton.disabled = false;
       }
-      
+
       if (currentPage < 4) {
         for (let i = 1; i < 4; i++) {
           const pageButton = createButton(i, i);
@@ -592,15 +681,15 @@ export default class NoroffApp extends NoroffAPI {
         const lastPageButton = createButton(pageCount, pageCount);
         paginationContainer.appendChild(lastPageButton);
       }
-      
+
       if (currentPage >= 4 && currentPage <= pageCount - 3) {
         const firstPageButton = createButton(1, 1);
         paginationContainer.appendChild(firstPageButton);
-        
+
         paginationContainer.appendChild(createEllipsis());
 
-        const startPage = Math.max(3, currentPage -2);
-        const endPage = Math.min(pageCount -2, currentPage +2);
+        const startPage = Math.max(3, currentPage - 2);
+        const endPage = Math.min(pageCount - 2, currentPage + 2);
         for (let i = startPage; i <= endPage; i++) {
           const pageButton = createButton(i, i);
           paginationContainer.appendChild(pageButton);
@@ -610,11 +699,11 @@ export default class NoroffApp extends NoroffAPI {
         paginationContainer.appendChild(lastPageButton);
       }
 
-      if (currentPage > pageCount -3) {
-        const firstPageButton = createButton(1,1);
-        paginationContainer.appendChild(firstPageButton)
+      if (currentPage > pageCount - 3) {
+        const firstPageButton = createButton(1, 1);
+        paginationContainer.appendChild(firstPageButton);
         paginationContainer.appendChild(createEllipsis());
-        for(let i = pageCount -2; i <= pageCount; i++) {
+        for (let i = pageCount - 2; i <= pageCount; i++) {
           const pageButton = createButton(i, i);
           paginationContainer.appendChild(pageButton);
         }
@@ -627,20 +716,30 @@ export default class NoroffApp extends NoroffAPI {
         }
       }
 
-      const nextButton = document.createElement('button');
+      const nextButton = document.createElement("button");
+      nextButton.classList.add(
+        "rounded-circle",
+        "border",
+        "border-2",
+        "btn",
+        "btn-light",
+      );
       const nextButtonIcon = document.createElement("i");
-      nextButtonIcon.classList.add("fa-solid", "fa-chevron-right");
+      nextButtonIcon.classList.add(
+        "fa-solid",
+        "fa-chevron-right",
+        "color-green",
+      );
       nextButton.appendChild(nextButtonIcon);
       paginationContainer.appendChild(nextButton);
       nextButton.addEventListener("click", () => {
         if (currentPage < pageCount) {
-          this.events.post.displayPosts(currentPage +1);
+          this.events.post.displayPosts(currentPage + 1);
         }
-      })
+      });
 
       if (currentPage === pageCount) {
         nextButton.disabled = true;
-        nextButton.style.cursor = "not-allowed";
       } else {
         nextButton.disabled = false;
       }
@@ -653,80 +752,80 @@ export default class NoroffApp extends NoroffAPI {
       let currentPage = 1;
 
       const params = new URLSearchParams(window.location.search);
-      const postId = Number(params.get('id'));
+      const postId = Number(params.get("id"));
 
-      let currentIndex = data.findIndex(post => post.id === postId);
+      let currentIndex = data.findIndex((post) => post.id === postId);
 
       while (currentIndex === -1 && currentPage * 100 < totalCount) {
         currentPage++;
         let newPostData = await api.posts.getPosts(100, currentPage);
         data = data.concat(newPostData.data);
-        currentIndex = data.findIndex(post => post.id === postId);
+        currentIndex = data.findIndex((post) => post.id === postId);
       }
-      
+
       const previousButton = document.getElementById("previous-post");
+      previousButton.classList.add("hover-underline");
       if (previousButton) {
         if (currentIndex > 0) {
-          const previousPostId = data[currentIndex -1].id;
+          const previousPostId = data[currentIndex - 1].id;
           previousButton.addEventListener("click", () => {
             window.location.href = `/post/?id=${previousPostId}`;
-          })
+          });
         } else {
           previousButton.disabled = true;
-          previousButton.style.cursor = "not-allowed";
         }
       }
 
       const nextButton = document.getElementById("next-post");
+      nextButton.classList.add("hover-underline");
       if (nextButton) {
         if (currentIndex < data.length - 1) {
-          const nextPostId = data[currentIndex +1]?.id;
+          const nextPostId = data[currentIndex + 1]?.id;
           nextButton.addEventListener("click", () => {
-            if(nextPostId) {
+            if (nextPostId) {
               window.location.href = `/post/?id=${nextPostId}`;
             }
-          })
+          });
         } else if (currentPage * 100 < totalCount) {
           currentPage++;
           try {
             let newPostData = await api.posts.getPosts(100, currentPage);
             data = data.concat(newPostData.data);
-            currentIndex = data.findIndex(post => post.id === postId);
-            const nextPostId = data[currentIndex +1]?.id;
+            currentIndex = data.findIndex((post) => post.id === postId);
+            const nextPostId = data[currentIndex + 1]?.id;
             nextButton.addEventListener("click", () => {
-              if(nextPostId) {
+              if (nextPostId) {
                 window.location.href = `/post/?id=${nextPostId}`;
               } else {
                 nextButton.disabled = true;
-                nextButton.style.cursor = "not-allowed";
               }
-            })
+            });
           } catch (error) {
-            alert(error.message)
+            alert(error.message);
             nextButton.disabled = true;
-            nextButton.style.cursor = "not-allowed";
           }
         } else {
           nextButton.disabled = true;
-          nextButton.style.cursor = "not-allowed";
         }
       }
     },
 
     profilePagination: async (currentPage, pageCount) => {
       this.currentPage = currentPage;
-      const paginationContainer = document.querySelector('.feed-pagination');
-      paginationContainer.innerHTML = '';
+      const paginationContainer = document.querySelector(".feed-pagination");
+      paginationContainer.innerHTML = "";
 
       const createButton = (text, page) => {
-        const button = document.createElement('button');
+        const button = document.createElement("button");
         button.textContent = text;
         button.dataset.page = page;
-        button.className = 'pagination-button';
-        if(page === this.currentPage) {
-          button.classList.add("current-page");
+        button.className =
+          "pagination-button, rounded-circle border border-2 btn btn-light";
+        if (page === this.currentPage) {
+          button.classList.add("current-page", "btn-primary");
+          button.classList.remove("btn-light");
         }
-        button.addEventListener('click', () => {
+        button.addEventListener("click", () => {
           this.currentPage = page;
           this.events.profile.displayProfilePage(page);
         });
@@ -734,72 +833,100 @@ export default class NoroffApp extends NoroffAPI {
       };
 
       const createEllipsis = () => {
-        const ellipsis = document.createElement('span');
+        const ellipsis = document.createElement("span");
+        ellipsis.classList.add("color-green");
         ellipsis.textContent = "...";
         return ellipsis;
-      }
-      
-      const previousButton = document.createElement('button')
+      };
+
+      const previousButton = document.createElement("button");
+      previousButton.classList.add(
+        "rounded-circle",
+        "border",
+        "border-2",
+        "btn",
+        "btn-light",
+      );
       const previousButtonIcon = document.createElement("i");
-      previousButtonIcon.classList.add("fa-solid", "fa-chevron-left");
+      previousButtonIcon.classList.add(
+        "fa-solid",
+        "fa-chevron-left",
+        "color-green",
+      );
       previousButton.appendChild(previousButtonIcon);
       paginationContainer.appendChild(previousButton);
       previousButton.addEventListener("click", () => {
         if (this.currentPage > 1) {
-          this.events.profile.displayProfilePage(this.currentPage -1);
+          this.events.profile.displayProfilePage(this.currentPage - 1);
         }
-      })
+      });
 
       if (this.currentPage === 1) {
         previousButton.disabled = true;
-        previousButton.style.cursor = "not-allowed";
       } else {
         previousButton.disabled = false;
       }
-      
-      for( let i = 1; i <= pageCount; i++) {
+
+      for (let i = 1; i <= pageCount; i++) {
         const pageButton = createButton(i, i);
         paginationContainer.appendChild(pageButton);
       }
 
-      const nextButton = document.createElement('button');
+      const nextButton = document.createElement("button");
+      nextButton.classList.add(
+        "rounded-circle",
+        "border",
+        "border-2",
+        "btn",
+        "btn-light",
+      );
       const nextButtonIcon = document.createElement("i");
-      nextButtonIcon.classList.add("fa-solid", "fa-chevron-right");
+      nextButtonIcon.classList.add(
+        "fa-solid",
+        "fa-chevron-right",
+        "color-green",
+      );
       nextButton.appendChild(nextButtonIcon);
       paginationContainer.appendChild(nextButton);
       nextButton.addEventListener("click", () => {
         if (this.currentPage < pageCount) {
-          this.events.profile.displayProfilePage(this.currentPage +1);
+          this.events.profile.displayProfilePage(this.currentPage + 1);
         }
-      })
+      });
 
       if (this.currentPage === pageCount) {
         nextButton.disabled = true;
-        nextButton.style.cursor = "not-allowed";
       } else {
         nextButton.disabled = false;
       }
     },
-  }
+  };
 
   animation = {
     headerPadding: () => {
       const header = document.querySelector(".profile-header");
-      const originalPaddingBottom = 18.4;
-      const scrollPaddingBottom = 4;
-      const minWidth = window.matchMedia('(min-width: 1024px)');
+      const originalPaddingBottom = 11.5;
+      const scrollPaddingBottom = 2.5;
+      //const minWidth = window.matchMedia("(min-width: 1024px)");
 
+      // window.addEventListener("scroll", () => {
+      //   if (minWidth.matches) {
+      //     if (window.scrollY > 0) {
+      //       header.style.paddingBottom = `${scrollPaddingBottom}rem`;
+      //     } else {
+      //       header.style.paddingBottom = `${originalPaddingBottom}rem`;
+      //     }
+      //   } else {
+      //     header.style.paddingBottom = "12.8rem";
+      //   }
+      // });
       window.addEventListener("scroll", () => {
-        if(minWidth.matches) {
-          if (window.scrollY > 0) {
-            header.style.paddingBottom = `${scrollPaddingBottom}rem`;
-          } else {
-            header.style.paddingBottom = `${originalPaddingBottom}rem`;
-          }
+        if (window.scrollY > 0) {
+          header.style.paddingBottom = `${scrollPaddingBottom}rem`;
         } else {
-          header.style.paddingBottom = "12.8rem";
+          header.style.paddingBottom = `${originalPaddingBottom}rem`;
         }
-      })
+      });
     },
-  }
+  };
 }

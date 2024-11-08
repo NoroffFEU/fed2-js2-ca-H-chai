@@ -1,0 +1,18 @@
+.post-container {
+  font-family: "Clash Display", sans-serif;
+}
+.post-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.feed-pagination button {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+.hover-scale-img:hover img {
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=feed.css.map */

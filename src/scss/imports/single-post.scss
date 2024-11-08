@@ -1,0 +1,22 @@
+.comment-list {
+  .comment-item {
+    margin-top: 1rem;
+    border-top: solid 1px #0d0d0d;
+  }
+
+  & :first-child {
+    margin-top: 0;
+    border: none;
+  }
+
+  & :last-child {
+    border-bottom: none;
+  }
+}
+
+.user-info {
+  img {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+}

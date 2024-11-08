@@ -1,0 +1,54 @@
+.navbar-nav {
+  --bs-nav-link-color: #025951;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.nav-link {
+  background: #f2f2eb;
+}
+
+.button-border {
+  border: solid 2px #025951;
+}
+
+@media screen and (max-width: 1023px) {
+  .border-none {
+    border: none;
+  }
+  .nav-bg-pink {
+    background-color: #ffe6ff;
+  }
+  .nav-bg-transparent {
+    background-color: transparent;
+  }
+}
+.navbar .navbar-toggler span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 6px auto;
+  background: #025951;
+  transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.navbar .navbar-toggler[aria-expanded=true] span:first-of-type {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navbar .navbar-toggler[aria-expanded=true] span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.navbar .navbar-toggler[aria-expanded=true] span:last-of-type {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.navbar .navbar-toggler[aria-expanded=false] span {
+  transform: none;
+  opacity: 1;
+}
+
+/*# sourceMappingURL=header.css.map */
