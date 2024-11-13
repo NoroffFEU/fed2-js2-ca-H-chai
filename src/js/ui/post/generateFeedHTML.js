@@ -20,7 +20,8 @@ export function generateFeedHTML(post) {
     "duration-scale",
     "ease-scale",
     "transform",
-    "group-hover:scale-110"
+    "group-hover:scale-110",
+    "z-0"
   );
   if (post.media?.url) {
     thumbnail.src = post.media.url;
