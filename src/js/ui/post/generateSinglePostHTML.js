@@ -277,10 +277,11 @@ export function generateSinglePostHTML(post) {
     "w-full",
     "border-2",
     "rounded-md",
-    "p-3",
+    "px-3",
+    "py-4",
     "font-medium",
     "duration-pb",
-    "hover:bg-light-green",
+    "hover:bg-light",
     "hover:text-green"
   );
   commentButton.type = "submit";

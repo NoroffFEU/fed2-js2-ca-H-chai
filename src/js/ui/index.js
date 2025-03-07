@@ -647,7 +647,7 @@ export default class NoroffApp extends NoroffAPI {
         button.textContent = text;
         button.dataset.page = page;
         button.className =
-          "pagination-button w-9 h-9 border-2 border-green rounded-full hover:bg-light-green";
+          "pagination-button w-9 h-9 border-2 border-green rounded-full hover:bg-light";
         if (page === currentPage) {
           button.classList.add("current-page");
         }
@@ -670,7 +670,7 @@ export default class NoroffApp extends NoroffAPI {
         "border-2",
         "border-green",
         "rounded-full",
-        "hover:bg-light-green"
+        "hover:bg-light"
       );
       const previousButtonIcon = document.createElement("i");
       previousButtonIcon.classList.add("fa-solid", "fa-chevron-left");
@@ -740,7 +740,7 @@ export default class NoroffApp extends NoroffAPI {
         "border-2",
         "border-green",
         "rounded-full",
-        "hover:bg-light-green"
+        "hover:bg-light"
       );
       const nextButtonIcon = document.createElement("i");
       nextButtonIcon.classList.add("fa-solid", "fa-chevron-right");
@@ -839,7 +839,7 @@ export default class NoroffApp extends NoroffAPI {
         button.textContent = text;
         button.dataset.page = page;
         button.className =
-          "pagination-button w-9 h-9 border-2 border-green rounded-full hover:bg-light-green";
+          "pagination-button w-9 h-9 border-2 border-green rounded-full hover:bg-light";
         if (page === this.currentPage) {
           button.classList.add("current-page");
         }
@@ -863,7 +863,7 @@ export default class NoroffApp extends NoroffAPI {
         "border-2",
         "border-green",
         "rounded-full",
-        "hover:bg-light-green"
+        "hover:bg-light"
       );
       const previousButtonIcon = document.createElement("i");
       previousButtonIcon.classList.add("fa-solid", "fa-chevron-left");
@@ -894,7 +894,7 @@ export default class NoroffApp extends NoroffAPI {
         "border-2",
         "border-green",
         "rounded-full",
-        "hover:bg-light-green"
+        "hover:bg-light"
       );
       const nextButtonIcon = document.createElement("i");
       nextButtonIcon.classList.add("fa-solid", "fa-chevron-right");
