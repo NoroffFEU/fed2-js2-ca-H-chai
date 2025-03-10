@@ -2,54 +2,90 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
+    <title>Postlyfe Register</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <script type="module" src="../../src/app.js" defer></script>
   </head>
 
-  <body>
-    <h1>Register</h1>
-
-    <form name="register">
-      <div>
-        <label for="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          required
-          maxlength="20"
-          pattern="^[\w]+$"
-          title="Please enter a username using only letters and numbers"
+  <body
+    class="flex justify-between flex-col min-h-lvh font-display bg-light text-black"
+  >
+    <header class="p-4 lg:pt-10 lg:px-16 lg:pb-0">
+      <a href="/">
+        <img
+          src="/public/images/Postlyfe.svg"
+          alt="Logo"
+          class="w-1/4 md:w-1/6 logo"
         />
-      </div>
+      </a>
+    </header>
 
-      <div>
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-          title="Please enter a valid noroff.no or stud.noroff.no address"
-        />
-      </div>
+    <main class="px-10 mb-20">
+      <h1 class="text-center mb-8 lg:mb-10 text-5xl font-semibold">Register</h1>
 
-      <div>
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          minlength="8"
-        />
-      </div>
+      <form name="register" class="lg:w-1/3 lg:mx-auto">
+        <div>
+          <label for="name"
+            ><input
+              class="border rounded-md w-full px-3 py-4 mb-3 bg-light placeholder-gray font-body text-sm"
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Username"
+              required
+              maxlength="20"
+              pattern="^[\w]+$"
+              title="Please enter a username using only letters and numbers"
+          /></label>
+        </div>
 
-      <a href="/auth/login/">Login</a>
-      <button>Register</button>
-    </form>
+        <div>
+          <label for="email"
+            ><input
+              class="border rounded-md w-full px-3 py-4 mb-3 bg-light placeholder-gray font-body text-sm"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+              title="Please enter a valid noroff.no or stud.noroff.no address"
+          /></label>
+        </div>
+
+        <div>
+          <label for="password"
+            ><input
+              class="border rounded-md w-full px-3 py-4 mb-3 bg-light placeholder-gray font-body text-sm"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+              minlength="8"
+          /></label>
+        </div>
+
+        <button
+          type="submit"
+          class="border-2 rounded-md w-full lg:mt-4 px-3 py-4 bg-green border-green text-white font-medium duration-pb hover:text-green hover:bg-light"
+        >
+          Register
+        </button>
+        <p class="mt-6 text-center">
+          You already have an account?<a
+            href="/auth/login/"
+            class="ms-1 font-semibold underline"
+            >Log in</a
+          >
+        </p>
+      </form>
+    </main>
+
+    <footer class="flex justify-center lg:pb-6 gap-5 text-sm">
+      <a href="#" class="hover:underline">Terms of Use</a>
+      <a href="#" class="hover:underline">Privacy Policy</a>
+    </footer>
   </body>
 </html>

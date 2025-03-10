@@ -8,12 +8,12 @@
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../style.css" />
-    <script type="module" src="../src/app.js" defer></script>
+    <link rel="stylesheet" href="../../style.css" />
+    <script type="module" src="../../src/app.js" defer></script>
   </head>
-  <body class="bg-pink font-display text-black">
+  <body class="bg-light font-display text-black">
     <header
-      class="fixed top-0 right-0 left-0 flex justify-between items-center bg-pink p-4 lg:pt-10 lg:pb-10 lg:px-16"
+      class="fixed top-0 right-0 left-0 flex justify-between items-center bg-light p-4 z-50 lg:pt-10 lg:pb-10 lg:px-16"
     >
       <a href="/post/feed/?page=1" class="w-1/4 md:w-1/6">
         <img src="/public/images/Postlyfe.svg" alt="Logo" class="logo" />
@@ -23,7 +23,7 @@
         <label for="menu-btn" class="menu-icon"
           ><span class="navicon"></span
         ></label>
-        <ul class="menu bg-pink">
+        <ul class="menu bg-light">
           <li>
             <a class="my-page text-green font-semibold"> My Page </a>
           </li>
@@ -34,7 +34,7 @@
           </li>
         </ul>
       </nav>
-      <nav class="header-nav hidden lg:flex lg:gap-2">
+      <nav class="hidden lg:flex lg:gap-2">
         <a
           href="/post/create/"
           class="text-green font-medium border-2 px-4 py-2 rounded-md bg-light duration-pb hover:text-light hover:bg-green"
@@ -55,37 +55,20 @@
       </nav>
     </header>
 
-    <main
-      class="mx-4 my-20 px-4 py-8 bg-light rounded-md lg:mx-32 lg:my-44 lg:px-32 lg:py-20"
-    >
+    <main class="mt-28 mb-20 px-6 sm:px-10 lg:px-16 lg:mt-44">
       <a
         href="/post/create/"
-        class="text-light bg-green font-medium px-4 py-2 rounded-md fixed right-6 bottom-10 lg:hidden"
+        class="text-light bg-green font-medium px-4 py-2 rounded-md fixed right-6 bottom-10 z-50 lg:hidden"
       >
-        <i class="fa-solid fa-pen-fancy"></i>
+        <i class="fa-solid fa-pen-fancy mr-1"></i>
         New Post
       </a>
-      <div class="mb-6 lg:mb-8">
-        <a
-          class="back-to-profile-page underline text-sm hover:text-hover-black"
-        >
-          <i class="fa-solid fa-chevron-left mr-1"></i>
-        </a>
-      </div>
-      <div class="single-post mb-12"></div>
-      <div class="single-pagination text-sm flex justify-between items-center">
-        <button id="previous-post" class="single-pagination-button">
-          <i class="fa-solid fa-chevron-left mr-1"></i>
-          Previous
-        </button>
-        <a href="" class="back-link-on-single-page hover:underline"
-          >Back Feed</a
-        >
-        <button id="next-post" class="single-pagination-button">
-          Next
-          <i class="fa-solid fa-chevron-right ml-1"></i>
-        </button>
-      </div>
+      <div
+        class="feed grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-8 lg:grid-cols-3 xl:grid-cols-4"
+      ></div>
+      <div
+        class="feed-pagination mt-14 flex justify-center items-center gap-2 text-green font-medium lg:mt-16"
+      ></div>
     </main>
 
     <footer class="flex justify-center pb-8 gap-4 lg:pb-6 text-sm">

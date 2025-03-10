@@ -1,5 +1,6 @@
-import "./css/style.css";
+import NoroffApp from "./js/ui/index.js";
+const app = new NoroffApp();
 
-import router from "./js/router";
+import NoroffAPI from "./js/api/index.js";
+const api = new NoroffAPI();
 
-await router(window.location.pathname);

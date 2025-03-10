@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Postlyfe Create</title>
+    <title>Postlyfe Update Profile</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
@@ -18,27 +18,13 @@
       <a href="/post/feed/?page=1" class="w-1/4 md:w-1/6">
         <img src="/public/images/Postlyfe.svg" alt="Logo" class="logo" />
       </a>
-      <nav class="lg:hidden">
-        <input type="checkbox" class="menu-btn hidden" id="menu-btn" />
-        <label for="menu-btn" class="menu-icon"
-          ><span class="navicon"></span
-        ></label>
-        <ul class="menu bg-light">
-          <li>
-            <a class="my-page text-green font-semibold"> My Page </a>
-          </li>
-          <li>
-            <button class="logout-button text-green font-semibold">
-              Log out
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <nav class="header-nav hidden lg:flex lg:gap-2">
+      <nav class="header-nav lg:flex lg:gap-2">
         <a
-          class="my-page text-green border-2 px-4 py-2 rounded-md bg-light duration-pb hover:text-light hover:bg-green"
+          href="/post/create/"
+          class="text-green font-medium border-2 px-4 py-2 rounded-md bg-light hidden lg:block duration-pb hover:text-light hover:bg-green"
         >
-          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-pen-fancy mr-1"></i>
+          New Post
         </a>
         <button
           class="logout-button text-green font-medium border-2 px-4 py-2 rounded-md bg-light duration-pb hover:text-light hover:bg-green"
@@ -49,65 +35,76 @@
     </header>
 
     <main class="mt-32 mb-20 px-6 lg:mt-44 lg:px-32">
-      <h1 class="text-3xl text-center font-bold mb-6 lg:text-4xl lg:mb-8">
+      <a
+        href="/post/create/"
+        class="text-light bg-green font-medium px-4 py-2 rounded-md fixed right-6 bottom-10 lg:hidden"
+      >
+        <i class="fa-solid fa-pen-fancy mr-1"></i>
         New Post
+      </a>
+      <div class="back-to-feed mb-6 lg:mb-12">
+        <a class="back-to-profile-page text-sm">
+          <i class="fa-solid fa-chevron-left mr-1"></i>
+        </a>
+      </div>
+      <h1 class="text-3xl text-center font-bold mb-6 lg:text-4xl lg:mb-8">
+        Update Profile
       </h1>
 
-      <form name="createPost" class="create-form lg:w-4/5 lg:mx-auto">
-        <label for="title" class="font-semibold block">
-          Title
+      <form
+        name="updateProfile"
+        class="update-profile-form lg:w-4/5 lg:mx-auto"
+      >
+        <label for="bio" class="font-semibold block">
+          Bio
           <input
-            name="title"
-            id="title"
+            name="bio"
+            id="bio"
             type="text"
             class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
           />
         </label>
-        <label for="img-url" class="font-semibold block">
-          Image URL
+        <label for="banner" class="font-semibold block">
+          Banner URL
           <input
-            name="media[url]"
-            id="img-url"
-            type="text"
+            name="banner[url]"
+            id="banner"
+            type="url"
             class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
-            required
           />
         </label>
-        <label for="img-alt" class="font-semibold block">
-          Image alt
+        <label for="banner-alt" class="font-semibold block">
+          Banner alt
           <input
-            name="media[alt]"
-            id="img-alt"
-            type="text"
-            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
-            required
-          />
-        </label>
-        <label for="tags" class="font-semibold block">
-          Tag
-          <input
-            name="tags"
-            id="tags"
+            name="banner[alt]"
+            id="banner-alt"
             type="text"
             class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
           />
         </label>
-        <label for="content" class="font-semibold block">
-          Content
-          <textarea
-            name="body"
-            id="content"
-            cols="30"
-            rows="12"
+        <label for="avatar" class="font-semibold block">
+          Avatar URL
+          <input
+            name="avatar[url]"
+            id="avatar"
+            type="url"
             class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
-            required
-          ></textarea>
+          />
+        </label>
+        <label for="avatar-alt" class="font-semibold block">
+          Avatar alt
+          <input
+            name="avatar[alt]"
+            id="avatar-alt"
+            type="text"
+            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
         <button
           type="submit"
-          class="submit-type-button w-full text-center font-medium bg-green text-white px-3 py-4 text-base rounded-md mt-4 border-2 duration-pb hover:text-green hover:bg-light"
+          class="submit-type-button w-full text-center font-medium bg-green text-white px-3 py-4 rounded-md mt-4 border-2 duration-pb hover:text-green hover:bg-light"
         >
-          Create Post
+          Update Profile
         </button>
       </form>
     </main>
