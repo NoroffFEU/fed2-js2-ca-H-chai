@@ -3,7 +3,7 @@
 ## Overview
 
 This project is a client-side social media application where users can create, view, edit, and delete their posts. The application also includes features for user authentication, following/unfollowing other users, and interacting with posts through comments.
-The app interacts with a backend API to perform CRUD operations (Create, Read, Update, and Delete) on posts, and it uses JWT (JSON Web Tokens) for user authentication.
+The app interacts with a backend API to perform CRUD operations (Create, Read, Update, and Delete) on posts, and it uses localStorage for user authentication.
 
 ## Live Demo
 
