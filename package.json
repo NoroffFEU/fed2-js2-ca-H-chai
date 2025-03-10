@@ -4,13 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite && npx tailwindcss -i ./src/css/style.css -o ./style.css --watch",
+    "build": "vite build && npx tailwindcss -i ./src/css/style.css -o ./style.css",
+    "tailwind": "npx tailwindcss -i ./src/css/style.css -o ./style.css",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "gh-pages": "^6.1.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
     "vite": "^5.4.1"
   }
 }

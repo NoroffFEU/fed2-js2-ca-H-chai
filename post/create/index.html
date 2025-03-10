@@ -1,66 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
+    <title>Postlyfe Create</title>
     <script
       src="https://kit.fontawesome.com/98d292e689.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link rel="stylesheet" href="../../style.css" />
     <script type="module" src="../../src/app.js" defer></script>
   </head>
-  <body>
-    <header class="post-header">
-      <a href="/post/feed/?page=1">
-        <img src="/public/images/noroff-logo.png" alt="Logo" class="logo" />
+  <body class="bg-light font-display text-black">
+    <header
+      class="fixed top-0 right-0 left-0 flex justify-between items-center bg-light p-4 lg:pt-10 lg:pb-10 lg:px-16"
+    >
+      <a href="/post/feed/?page=1" class="w-1/4 md:w-1/6">
+        <img src="/public/images/Postlyfe.svg" alt="Logo" class="logo" />
       </a>
-      <nav class="header-nav">
-        <a class="my-page">
-          <i class="fa-regular fa-user"></i>
+      <nav class="lg:hidden">
+        <input type="checkbox" class="menu-btn hidden" id="menu-btn" />
+        <label for="menu-btn" class="menu-icon"
+          ><span class="navicon"></span
+        ></label>
+        <ul class="menu bg-light">
+          <li>
+            <a class="my-page text-green font-semibold"> My Page </a>
+          </li>
+          <li>
+            <button class="logout-button text-green font-semibold">
+              Log out
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header-nav hidden lg:flex lg:gap-2">
+        <a
+          class="my-page text-green border-2 px-4 py-2 rounded-md bg-light duration-pb hover:text-light hover:bg-green"
+        >
+          <i class="fa-solid fa-user"></i>
         </a>
-        <button class="logout-button">Log out</button>
+        <button
+          class="logout-button text-green font-medium border-2 px-4 py-2 rounded-md bg-light duration-pb hover:text-light hover:bg-green"
+        >
+          Log out
+        </button>
       </nav>
     </header>
 
-    <main class="post-main">
-      <h1>New Post</h1>
+    <main class="mt-32 mb-20 px-6 lg:mt-44 lg:px-32">
+      <h1 class="text-3xl text-center font-bold mb-6 lg:text-4xl lg:mb-8">
+        New Post
+      </h1>
 
-      <form name="createPost" class="create-form">
-        <label for="title">
+      <form name="createPost" class="create-form lg:w-4/5 lg:mx-auto">
+        <label for="title" class="font-semibold block">
           Title
-          <input name="title" id="title" type="text" required />
+          <input
+            name="title"
+            id="title"
+            type="text"
+            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <label for="img-url">
+        <label for="img-url" class="font-semibold block">
           Image URL
-          <input name="media[url]" id="img-url" type="text" required />
+          <input
+            name="media[url]"
+            id="img-url"
+            type="text"
+            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+            required
+          />
         </label>
-        <label for="img-alt">
+        <label for="img-alt" class="font-semibold block">
           Image alt
-          <input name="media[alt]" id="img-alt" type="text" required />
+          <input
+            name="media[alt]"
+            id="img-alt"
+            type="text"
+            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+            required
+          />
         </label>
-        <label for="tags">
+        <label for="tags" class="font-semibold block">
           Tag
-          <input name="tags" id="tags" type="text" />
+          <input
+            name="tags"
+            id="tags"
+            type="text"
+            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
+          />
         </label>
-        <label for="content">
+        <label for="content" class="font-semibold block">
           Content
           <textarea
             name="body"
             id="content"
             cols="30"
             rows="12"
+            class="block w-full border bg-light rounded-md p-3 mb-4 mt-2 font-normal font-body"
             required
           ></textarea>
         </label>
-        <button type="submit" class="submit-type-button">Create Post</button>
+        <button
+          type="submit"
+          class="submit-type-button w-full text-center font-medium bg-green text-white px-3 py-4 text-base rounded-md mt-4 border-2 duration-pb hover:text-green hover:bg-light"
+        >
+          Create Post
+        </button>
       </form>
     </main>
 
-    <footer>
-      <a href="#">Terms Of Use</a>
-      <a href="#">Privacy Policy</a>
+    <footer class="flex justify-center pb-8 gap-4 lg:pb-6 text-sm">
+      <a href="#" class="hover:underline">Terms of Use</a>
+      <a href="#" class="hover:underline">Privacy Policy</a>
     </footer>
   </body>
 </html>
