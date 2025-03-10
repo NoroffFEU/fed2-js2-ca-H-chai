@@ -1,27 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
-    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Postlyfe</title>
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="src/app.js" defer></script>
   </head>
 
-  <body>
-    <header>
+  <body
+    class="flex justify-between flex-col min-h-lvh font-display bg-light text-black"
+  >
+    <header class="p-4 lg:pt-10 lg:px-16 lg:pb-0">
       <a href="/">
-        <img src="public/images/noroff-logo.png" alt="Logo" class="logo" />
+        <img
+          src="public/images/Postlyfe.svg"
+          alt="Logo"
+          class="w-1/4 md:w-1/6 logo"
+        />
       </a>
     </header>
 
-    <main class="auth-main">
-      <h1 class="page-title">Login</h1>
-      <form name="login">
+    <main class="px-10 mb-20">
+      <h1 class="text-center mb-8 lg:mb-10 text-5xl font-semibold">Login</h1>
+      <form name="login" class="lg:w-1/3 lg:mx-auto">
         <div>
           <label for="email">
             <input
+              class="border rounded-md box-border w-full px-3 py-4 mb-3 bg-light placeholder-gray font-body text-sm"
               id="email"
               type="email"
               name="email"
@@ -34,6 +41,7 @@
         <div>
           <label for="password">
             <input
+              class="border rounded-md box-border w-full px-3 py-4 mb-3 bg-light placeholder-gray font-body text-sm"
               type="password"
               name="password"
               id="password"
@@ -43,18 +51,25 @@
           </label>
         </div>
 
-        <button type="submit" class="submit-type-button">Log in</button>
-        <p class="auth-info">
-          Don't have an account?<a href="/auth/register/" class="auth-link"
+        <button
+          type="submit"
+          class="border-2 rounded-md w-full lg:mt-4 px-3 py-4 bg-green border-green text-white font-medium"
+        >
+          Log in
+        </button>
+        <p class="mt-6 text-center">
+          Don't have an account?<a
+            href="/auth/register/"
+            class="ms-1 font-semibold underline"
             >Sign up</a
           >
         </p>
       </form>
     </main>
 
-    <footer>
-      <a href="#">Terms Of Use</a>
-      <a href="#">Privacy Policy</a>
+    <footer class="flex justify-center lg:pb-6 gap-5 text-sm">
+      <a href="#" class="hover:underline">Terms of Use</a>
+      <a href="#" class="hover:underline">Privacy Policy</a>
     </footer>
   </body>
 </html>
